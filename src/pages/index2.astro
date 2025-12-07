@@ -1,0 +1,119 @@
+---
+// IMPORTANT: Ensure this path matches where your working JSON file is!
+// If you moved it to "database/master_tools.json", update this line.
+import tools from '../data/tools.json';
+
+const pageTitle = "The Faceless Creator Stack | Top Tools for 2025";
+
+// 1. Get unique categories from the tools list and sort them alphabetically
+// const categories = [...new Set(tools.map(tool => tool.category))].sort();
+const categories = ["Video Generation","Voiceover","Scripting","Editing","Growth & SEO"];
+
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<title>{pageTitle}</title>
+        <meta name="description" content="A curated directory of the best AI tools for building Faceless YouTube and TikTok channels.">
+        <style>
+            body { font-family: system-ui, sans-serif; background: #f8fafc; color: #1e293b; margin: 0; padding: 0; }
+            .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+            
+            header { text-align: center; margin-bottom: 3rem; padding: 3rem 1rem; background: white; border-bottom: 1px solid #e2e8f0; }
+            h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+            
+            /* Category Section Styles */
+            .category-section { margin-bottom: 4rem; }
+            .category-title { 
+                font-size: 1.8rem; 
+                color: #334155; 
+                margin-bottom: 1.5rem; 
+                border-bottom: 2px solid #e2e8f0; 
+                padding-bottom: 0.5rem;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+            }
+
+            .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+            
+            .card { 
+                background: white; 
+                border: 1px solid #e2e8f0; 
+                border-radius: 8px; 
+                padding: 1.5rem; 
+                transition: transform 0.2s; 
+                position: relative; 
+            }
+            .card:hover { transform: translateY(-3px); border-color: #cbd5e1; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+            
+            .category-tag { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; font-weight: bold; }
+            
+            /* Logo Style - Preserving your 60px size */
+            .card-logo {
+                position: absolute;
+                top: 1.5rem;
+                right: 1.5rem;
+                width: 75px;       
+                height: 75px;      
+                object-fit: contain;
+                border-radius: 6px;
+                background: white;
+            }
+
+            /* Tool Name - Preserving your padding to prevent overlap */
+            .tool-name { 
+                margin: 0.5rem 0; 
+                font-size: 1.25rem; 
+                color: #0f172a; 
+                text-decoration: none; 
+                display: block; 
+                padding-right: 75px; 
+            }
+            
+            .desc { font-size: 0.9rem; color: #475569; line-height: 1.5; }
+            .link { display: inline-block; margin-top: 1rem; color: #2563eb; font-weight: bold; text-decoration: none; }
+        </style>
+	</head>
+	<body>
+        <header>
+            <h1>The Faceless Creator Stack</h1>
+            <p>The best AI tools for automating YouTube & TikTok channels, curated for 2025.</p>
+        </header>
+        
+        <div class="container">
+            {categories.map((category) => (
+                <section class="category-section">
+                    <h2 class="category-title">{category}</h2>
+                    
+                    <div class="grid">
+                        {tools.filter(t => t.category === category).map((tool) => (
+                            <div class="card">
+                                <img src={tool.image} alt={`${tool.name} logo`} class="card-logo" loading="lazy" />
+                                <span class="category-tag">{tool.category}</span>
+                                <a href={`/tool/${tool.id}`} class="tool-name">
+                                    {tool.name} &rarr;
+                                </a>
+                                <p class="desc">{tool.description.substring(0, 100)}...</p>
+                                <a href={`/tool/${tool.id}`} class="link">Read Review</a>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            ))}
+        </div>
+	<footer style="text-align: center; margin-top: 4rem; padding: 2rem; border-top: 1px solid #e2e8f0; font-size: 0.875rem; color: #64748b;">
+    <p>&copy; 2025 Faceless Creator Stack. All rights reserved.</p>
+    <div style="margin-top: 0.5rem;">
+        <a href="/privacy" style="color: #64748b; margin: 0 10px; text-decoration: none;">Privacy Policy</a> | 
+        <a href="/disclosure" style="color: #64748b; margin: 0 10px; text-decoration: none;">Affiliate Disclosure</a>
+    </div>
+    <p style="margin-top: 1rem; font-size: 0.75rem;">
+        Disclaimer: This site contains affiliate links. We may earn a commission if you buy through our links.
+    </p>
+</footer>
+
+	</body>
+</html>

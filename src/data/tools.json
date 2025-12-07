@@ -1,0 +1,560 @@
+[
+  {
+    "id": "invideo-ai",
+    "name": "InVideo AI",
+    "image":"/logos/invideo.png",
+    "category": "Video Generation",
+    "description": "The ultimate text-to-video generator for faceless channels. Type a prompt like 'History of Rome' and it generates a script, voiceover, and stock footage video instantly.",
+    "pricing": "Freemium / $20 mo",
+    "affiliate_link": "YOUR_AFFILIATE_LINK_HERE",
+    "features": [
+      "Text-to-Video Generation",
+      "10M+ Stock Media Library",
+      "Automated Script Writing",
+      "Human-sounding Voiceovers"
+    ],
+    "tags": ["Best Overall", "Beginner Friendly", "All-in-One"],
+    "verified": "true",
+    "rating": "4.8",
+    "pros": [
+        "Generates entire videos from a single prompt",
+      "Huge library of royalty-free stock footage",
+      "Very easy for beginners with no editing skills"
+
+    ],
+    "cons": [
+	"AI voice can sometimes sound robotic & mispronounce niche words",
+        "Exporting in 4K requires a paid plan",
+        "Export rendering can be slow on free plan"
+    ]
+   
+  },
+  {
+    "id": "murf-ai",
+    "name": "Murf.ai",
+    "image":"/logos/murf-ai.png",
+    "category": "Voiceover",
+    "description": "Studio-quality AI voiceovers that are indistinguishable from human speech. Ideal for documentary and storytelling channels.",
+    "pricing": "Freemium / $19 mo",
+    "affiliate_link": "YOUR_AFFILIATE_LINK_HERE",
+    "features": [
+      "120+ Realistic Voices",
+      "Voice Cloning",
+      "Sync to Video Timeline",
+      "Commercial Usage Rights"
+    ],
+    "tags": ["High Quality", "Documentary Style"],
+    "verified": "true",
+    "rating": "4.7",
+    "pros": [
+        "Voices sound incredibly professional and polished",
+      "Ability to adjust pitch, speed, and emphasis",
+      "Clean interface for syncing audio with video"
+    ],
+    "cons": [
+	"Free plan does not allow downloads",
+      "Some higher-end voices are locked behind 'Pro' tier"
+    ]
+  },
+  {
+    "id": "elevenlabs",
+    "name": "ElevenLabs",
+    "image":"/logos/elevenlabs.png",
+    "category": "Voiceover",
+    "description": "The viral AI voice tool used by most top faceless channels. Famous for its emotive speech and instant voice cloning capabilities.",
+    "pricing": "Freemium / $5 mo",
+    "affiliate_link": "YOUR_AFFILIATE_LINK_HERE",
+    "features": [
+      "Most Realistic Emotion",
+      "Instant Voice Cloning",
+      "Multi-language Support",
+      "Speech-to-Speech"
+    ],
+    "tags": ["Viral", "Best Value"],
+    "verified": "true",
+    "rating": "4.9",
+    "pros": [
+       "Best-in-class emotional range (whispering, shouting)",
+      "Instant voice cloning is shockingly accurate",
+      "Very affordable starting price ($5/mo)"
+    ],
+    "cons": [
+	"Character limit gets used up quickly on cheaper plans",
+      "Limited audio editing features compared to Murf"
+    ]
+  },
+  {
+    "id": "opus-clip",
+    "name": "OpusClip",
+    "image":"/logos/opusclip.png",
+    "category": "Shorts Repurposing",
+    "description": "Automatically turns long YouTube videos into viral Shorts. It detects the best hooks and adds animated captions automatically.",
+    "pricing": "Freemium / $9 mo",
+    "affiliate_link": "YOUR_AFFILIATE_LINK_HERE",
+    "features": [
+      "AI Viral Score",
+      "Auto-Captions (Alex Hormozi Style)",
+      "Active Speaker Detection",
+      "Auto-Resize to 9:16"
+    ],
+    "tags": ["Shorts", "Viral Tool"],
+    "verified": "true",
+     "rating": "4.8",
+    "pros": [
+       "Saves hours of editing time for Shorts/TikToks",
+      "AI 'Viral Score' helps choose the best clips",
+      "Captions are automatically animated and stylish"
+    ],
+    "cons": [
+	"Only works well with videos that have clear speech",
+      "Sometimes cuts off sentences abruptly"
+    ]
+  },
+
+  {
+    "id": "subscribr",
+    "name": "Subscribr",
+    "image":"/logos/subscribr.png",
+    "category": "Scriptwriting",
+    "description": "An AI scriptwriter trained specifically on viral YouTube structures. It analyzes your niche and writes scripts optimized for retention.",
+    "pricing": "Trial / $33 mo",
+    "affiliate_link": "YOUR_AFFILIATE_LINK_HERE",
+    "features": [
+      "Viral Script Frameworks",
+      "Audience Analysis",
+      "Competitor Research Agents",
+      "Tone Matching"
+    ],
+    "tags": ["Specialized", "High Retention"],
+    "verified": "true",
+     "rating": "4.4",
+    "pros": [
+       "Trained specifically on YouTube data, not generic text",
+      "Great for breaking writer's block",
+      "Understands 'hooks' and 'retention' better than ChatGPT"
+    ],
+    "cons": [
+	"More expensive than general AI writers",
+      "UI can be a bit complex for total beginners"
+    ]
+  },
+
+  {
+    "id": "1of10",
+    "name": "1of10",
+    "image":"/logos/1of10.png",
+    "category": "Growth & Thumbnails",
+    "description": "A data engine that finds 'Outlier' videos (viral hits) in your niche to help you replicate their success. Includes an AI thumbnail generator.",
+    "pricing": "$29 mo",
+    "affiliate_link": "YOUR_AFFILIATE_LINK_HERE",
+    "features": [
+      "Viral Outlier Detection",
+      "AI Thumbnail Generator",
+      "Title Optimization",
+      "Competitor Tracking"
+    ],
+    "tags": ["Analytics", "Thumbnail Design"],
+    "verified": "true",
+    "rating": "4.6",
+    "pros": [
+       "Finds video ideas that are mathematically proven to work",
+      "Thumbnail tools are very specific to YouTube CTR",
+      "Helps you stop guessing what to make"
+    ],
+    "cons": [
+      "No free trial (usually)",
+      "Requires you to understand data analysis basics"
+    ]
+  },
+
+  {
+    "id": "vidiq",
+    "name": "vidIQ",
+     "image":"/logos/vidiq.png",
+    "category": "Growth & SEO",
+    "description": "Essential tool for keyword research and SEO. Helps you find low-competition topics that your faceless channel can actually rank for.",
+    "pricing": "Freemium / $10 mo",
+    "affiliate_link": "YOUR_AFFILIATE_LINK_HERE",
+    "features": [
+      "Keyword Research",
+      "Competitor Views Per Hour",
+      "Daily AI Video Ideas",
+      "Title Generator"
+    ],
+    "tags": ["SEO", "Essential"],
+    "verified": "true",
+    "rating": "4.5",
+    "pros": [
+       "The 'Competition Score' is invaluable for small channels",
+      "Daily AI ideas are surprisingly relevant",
+      "Browser extension makes research fast"
+    ],
+    "cons": [
+       "The interface feels a bit dated",
+      "Best features are locked behind the 'Boost' plan"
+    ]
+  },
+
+  {
+    "id": "pictory",
+    "name": "Pictory",
+     "image":"/logos/pictory.png",
+    "category": "Video Generation",
+    "description": "Automatically turns blog posts or scripts into engaging videos with stock footage. Great for 'Top 10' listicle channels.",
+    "pricing": "Trial / $19 mo",
+    "affiliate_link": "YOUR_AFFILIATE_LINK_HERE",
+    "features": [
+      "Blog-to-Video",
+      "Script-to-Video",
+      "Auto Summarization",
+      "Auto Captions"
+    ],
+    "tags": ["Listicles", "Bulk Creation"],
+    "verified": "true",
+    "rating": "4.3",
+    "pros": [
+      "Excellent for turning articles into videos quickly",
+      "Automatic B-roll selection is decent",
+      "Very fast rendering times"
+    ],
+    "cons": [
+      "Stock footage selection can feel repetitive",
+      "AI voices are not as good as ElevenLabs"
+    ]
+  },
+
+  {
+    "id": "jasper",
+    "name": "Jasper",
+     "image":"/logos/jasper.png",
+    "category": "Scriptwriting",
+    "description": "A robust AI writer with specific templates for YouTube Video Scripts, Hooks, and Descriptions. More advanced than standard ChatGPT.",
+    "pricing": "Trial / $39 mo",
+    "affiliate_link": "YOUR_AFFILIATE_LINK_HERE",
+    "features": [
+      "YouTube Script Templates",
+      "Brand Voice Memory",
+      "SEO Mode",
+      "Chat Interface"
+    ],
+    "tags": ["Professional", "Copywriting"],
+    "verified": "true",
+     "rating": "4.6",
+    "pros": [
+      "High-quality output that sounds less 'robotic'",
+      "Specific templates for Video Hooks and Intros",
+      "Brand Voice feature keeps scripts consistent"
+    ],
+    "cons": [
+      "Pricey compared to ChatGPT Plus",
+      "Feature set is overwhelming for simple needs"
+    ]
+  },
+
+  {
+    "id": "descript",
+    "name": "Descript",
+     "image":"/logos/descript.png",
+    "category": "Editing",
+    "description": "Edit video by editing text. If you delete a word in the transcript, it cuts that part of the video. Includes 'Studio Sound' to fix bad audio.",
+    "pricing": "Freemium / $12 mo",
+    "affiliate_link": "YOUR_AFFILIATE_LINK_HERE",
+    "features": [
+      "Text-Based Editing",
+      "Studio Sound (Audio Fix)",
+      "Overdub (Voice Clone)",
+      "Screen Recording"
+    ],
+    "tags": ["Editing", "Workflow"],
+    "verified": "true",
+    "rating": "4.7",
+    "pros": [
+      "Revolutionary text-based editing workflow",
+      "'Studio Sound' removes echo/noise magically",
+      "Great for editing narration-heavy videos"
+    ],
+    "cons": [
+       "Can be resource-heavy/laggy on older computers",
+      "Video exporting can be slower than Premiere Pro"
+    ]
+  },
+
+  {
+    "id": "canva",
+    "name": "Canva",
+     "image":"/logos/canva.png",
+    "category": "Design",
+    "description": "The industry standard for designing YouTube thumbnails and channel art. Their 'Magic' AI tools can now generate images and remove backgrounds instantly.",
+    "pricing": "Freemium / $12 mo",
+    "affiliate_link": "YOUR_AFFILIATE_LINK_HERE",
+    "features": [
+      "Thumbnail Templates",
+      "Background Remover",
+      "Magic Media (Text-to-Image)",
+      "Brand Kit"
+    ],
+    "tags": ["Design", "Thumbnails"],
+    "verified": "true",
+     "rating": "4.9",
+    "pros": [
+      "Thousands of proven thumbnail templates", "Background remover is best-in-class", 
+      "New AI image generator is built right in" 
+    ],
+    "cons": [
+       "Generic templates are used by everyone", 
+       "Video editing features are very basic"
+    ]
+  },
+
+  {
+    "id": "heygen",
+    "name": "HeyGen",
+     "image":"/logos/heygen.png",
+    "category": "AI Avatar",
+    "description": "Create videos with hyper-realistic AI avatars that speak your script. Perfect for 'Face' channels without actually showing your face.",
+    "pricing": "Freemium / $24 mo",
+    "affiliate_link": "YOUR_AFFILIATE_LINK_HERE",
+    "features": [
+      "100+ AI Avatars",
+      "Lip-Sync Translation",
+      "Custom Avatar Cloning",
+      "Template Library"
+    ],
+    "tags": ["Avatar", "Presentation"],
+    "verified": "true",
+     "rating": "4.6",
+    "pros": [
+      "Lip-syncing is incredibly accurate",
+      "Allows you to clone your own face/voice",
+      "Great for news or educational channels" 
+    ],
+    "cons": [
+       "Video generation credit system is expensive",
+      "Avatars can still look slightly stiff"
+    ]
+  },
+
+  {
+    "id": "synthesia",
+    "name": "Synthesia",
+     "image":"/logos/synthesia.png",
+    "category": "AI Avatar",
+    "description": "The enterprise leader in AI avatars. Used by big brands for training videos, but excellent for high-end educational YouTube channels.",
+    "pricing": "$22 mo",
+    "affiliate_link": "YOUR_AFFILIATE_LINK_HERE",
+    "features": [
+      "140+ AI Avatars",
+      "120+ Languages",
+      "Screen Recorder",
+      "Consistent Characters"
+    ],
+    "tags": ["Professional", "Education"],
+    "verified": "true",
+    "rating": "4.5",
+    "pros": [
+      "Highest quality avatar video resolution",
+      "Huge variety of diverse avatars",
+      "Very strict safety/ethics moderation" 
+    ],
+    "cons": [
+      "Strict content moderation (no news/politics sometimes)",
+      "Pricing is per-minute generated"
+    ]
+  },
+
+  {
+    "id": "speechify",
+    "name": "Speechify",
+    "image":"/logos/speechify.png",
+    "category": "Voiceover",
+    "description": "Converts text to speech using celebrity voices (like Snoop Dogg) and high-quality AI. Great for reading articles or commentary.",
+    "pricing": "Freemium / $11.58 mo",
+    "affiliate_link": "YOUR_AFFILIATE_LINK_HERE",
+    "features": [
+      "Celebrity Voices",
+      "Reading Assistant",
+      "Chrome Extension",
+      "Natural Pacing"
+    ],
+    "tags": ["Unique Voices", "Productivity"],
+    "verified": "true",
+    "rating": "4.2",
+    "pros": [
+      "Unique celebrity voices stand out",
+      "Very fast processing speed",
+      "Great mobile app integration" 
+    ],
+    "cons": [
+      "Focused more on reading than video production",
+      "Less control over pausing/intonation than Murf"
+    ]
+  },
+
+  {
+    "id": "tubebuddy",
+    "name": "TubeBuddy",
+    "image":"/logos/tubebuddy.png",
+    "category": "Growth & SEO",
+    "description": "A browser extension that integrates directly into YouTube to help you A/B test thumbnails and optimize tags.",
+    "pricing": "Freemium / $6 mo",
+    "affiliate_link": "YOUR_AFFILIATE_LINK_HERE",
+    "features": [
+      "Thumbnail A/B Testing",
+      "Bulk Processing",
+      "Tag Explorer",
+      "Comment Management"
+    ],
+    "tags": ["Optimization", "Testing"],
+    "verified": "true",
+    "rating": "4.4",
+    "pros": [
+      "A/B testing tool is a game changer for CTR",
+      "Bulk update tools save hours of admin work",
+      "Direct integration inside YouTube Studio" 
+    ],
+    "cons": [
+      "Interface can feel cluttered",
+      "A/B testing requires a higher paid tier"
+    ]
+  },
+
+  {
+    "id": "lovo",
+    "name": "LOVO (Genny)",
+    "image":"/logos/lovo-geny.png",
+    "category": "Voiceover",
+    "description": "An advanced AI voice generator with emotional control. You can direct the AI to sound 'Angry', 'Sad', or 'Excited'.",
+    "pricing": "Freemium / $19 mo",
+    "affiliate_link": "YOUR_AFFILIATE_LINK_HERE",
+    "features": [
+      "Emotional Control",
+      "Video Editor Included",
+      "Sound Effects Library",
+      "Producer Mode"
+    ],
+    "tags": ["Emotion", "Storytelling"],
+    "verified": "true",
+    "rating": "4.5",
+    "pros": [
+      "Best granular control over emotions",
+      "Includes a basic video editor timeline",
+      "Large library of non-English voices" 
+    ],
+    "cons": [
+            "UI can be a bit slow to load",
+      "Credit system for generation can be confusing"
+    ]
+  },
+
+  {
+    "id": "veed-io",
+    "name": "Veed.io",
+    "image":"/logos/veed.png",
+    "category": "Editing",
+    "description": "A simple online video editor with strong AI tools like 'Magic Cut' to remove silences and auto-subtitles.",
+    "pricing": "Freemium / $18 mo",
+    "affiliate_link": "YOUR_AFFILIATE_LINK_HERE",
+    "features": [
+      "Magic Cut (Remove Silence)",
+      "Auto Subtitles",
+      "Stock Library",
+      "Screen Recorder"
+    ],
+    "tags": ["Online Editor", "Fast"],
+    "verified": "true",
+     "rating": "4.6",
+    "pros": [
+      "Runs entirely in the browser (no download)",
+      "Auto-subtitles are very accurate",
+      "Magic Cut saves hours of rough cutting" 
+    ],
+    "cons": [
+      "Can get laggy with 4K files",
+      "Watermark on the free version is large"
+    ]
+  },
+
+  {
+    "id": "play-ht",
+    "name": "Play.ht",
+    "image":"/logos/play-ht.png",
+    "category": "Voiceover",
+    "description": "Known for its 'Ultra Realistic' voices and ability to generate long-form audio suitable for audiobooks or long video essays.",
+    "pricing": "Freemium / $31 mo",
+    "affiliate_link": "YOUR_AFFILIATE_LINK_HERE",
+    "features": [
+      "Ultra Realistic Voices",
+      "Pronunciation Editor",
+      "Audio Hosting",
+      "WordPress Plugin"
+    ],
+    "tags": ["Long Form", "Quality"],
+    "verified": "true",
+    "rating": "4.5",
+    "pros": [
+      "Voices handle long paragraphs without glitching",
+      "High quality pronunciation editor",
+      "Generous character limits on paid plans" 
+    ],
+    "cons": [
+      "Interface is more for audio than video syncing",
+      "Slightly more expensive starting price"
+    ]
+  },
+
+  {
+    "id": "wondershare-filmora",
+    "name": "Filmora",
+    "image":"/logos/filmora.png",
+    "category": "Editing",
+    "description": "A desktop video editor that balances power with ease of use. Now includes AI features like Smart Cutout and AI Copywriting.",
+    "pricing": "$49/year or Lifetime",
+    "affiliate_link": "YOUR_AFFILIATE_LINK_HERE",
+    "features": [
+      "AI Smart Cutout",
+      "Motion Tracking",
+      "Split Screen Templates",
+      "Green Screen"
+    ],
+    "tags": ["Desktop Software", "Editing"],
+    "verified": "true",
+    "rating": "4.4",
+    "pros": [
+      "One-time payment option (Lifetime license)",
+      "Much easier to learn than Adobe Premiere",
+      "Built-in effects and transitions are great" 
+    ],
+    "cons": [
+      "Not cloud-based (must install software)",
+      "Upsells for effects packs are annoying"
+    ]
+  },
+
+  {
+    "id": "copy-ai",
+    "name": "Copy.ai",
+    "image":"/logos/copy-ai.png",
+    "category": "Scriptwriting",
+    "description": "Great for generating high-volume scripts. Includes workflows specifically for repurposing content from blogs to video scripts.",
+    "pricing": "Freemium / $36 mo",
+    "affiliate_link": "YOUR_AFFILIATE_LINK_HERE",
+    "features": [
+      "Unlimited Words (Paid)",
+      "Blog to Script",
+      "Social Media Captions",
+      "Chat Interface"
+    ],
+    "tags": ["Volume", "Repurposing"],
+    "verified": "true",
+    "rating": "4.3",
+    "pros": [
+      "Unlimited words plan is great for daily uploaders",
+      "Workflow templates save setup time",
+      "Simple, distraction-free writing interface"
+    ],
+    "cons": [
+      "Generated content can feel a bit generic",
+      "Lacks the deep YouTube-specific data of Subscribr"
+    ]
+  }
+]

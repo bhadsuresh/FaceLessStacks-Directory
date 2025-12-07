@@ -1,0 +1,311 @@
+---
+// 1. Import your data
+import tools from '../data/tools.json';
+import FeaturedRow from '../components/FeaturedRow.astro';
+
+const pageTitle = "The Faceless VDO Creator Stacks | Top Tools for 2025";
+
+// 2. Get unique categories and sort them
+const categories = [...new Set(tools.map(tool => tool.category))].sort();
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{pageTitle}</title>
+    <meta name="description" content="A curated directory of the best AI tools for building Faceless YouTube and TikTok channels. Compare pricing, features, and read reviews for 2025." />
+    <link rel="canonical" href={Astro.url} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content="Stop guessing. Find the exact AI stack used by viral faceless channels. Compare tools for Scripting, Voice, Video, and Automation." />
+    <meta property="og:image" content="/og-image.png" /> <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={pageTitle} />
+    <meta property="twitter:description" content="A curated directory of the best AI tools for building Faceless YouTube and TikTok channels." />
+    <meta property="twitter:image" content="/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "The Faceless VDO Creator Stacks",
+        "description": "A curated directory of AI tools for YouTube automation.",
+        "url": "https://facelessstacks.com", 
+        "mainEntity": {
+          "@type": "ItemList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "url": "https://facelessstacks.com/tool/invideo-ai",
+              "name": "InVideo AI"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "url": "https://facelessstacks.com/tool/murf-ai",
+              "name": "Murf.ai"
+            },
+             {
+              "@type": "ListItem",
+              "position": 3,
+              "url": "https://facelessstacks.com/tool/elevenlabs",
+              "name": "ElevenLabs"
+            }
+          ]
+        }
+      }
+    </script>
+        
+        <style>
+            body { font-family: system-ui, sans-serif; background: #f8fafc; color: #1e293b; margin: 0; padding: 0; }
+            .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+            
+           /*--- header { text-align: center; margin-bottom: 1rem; padding: 1rem 1rem; background: white; border-bottom: 1px solid #e2e8f0; }---*/
+	
+	    header {
+    		position: relative;
+		text-align: center;
+    		padding: 6rem 1rem;
+    		background-color: #0f172a;
+    		/* The Magic Mesh Gradient */
+    		background-color: #0f172a; /* Dark fallback */
+    		background-image: 
+        	radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+        	radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+        	radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+    		color: white; /* Make text white to pop */
+    		border-bottom: 1px solid rgba(255,255,255,0.1);
+		}
+
+           /*---h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }---*/
+		h1 {
+    		font-size: 3.5rem; 
+    		margin-bottom: 1rem;
+    		background: -webkit-linear-gradient(#fff, #94a3b8);
+    		-webkit-background-clip: text;
+    		-webkit-text-fill-color: transparent;
+		}
+		
+		/* NEW: Styles for the Top-Left Logo */
+		.site-logo-link {
+    		position: absolute;
+    		top: 8rem;    /* Distance from top */
+    		left: 3rem;     /* Distance from left */
+    		text-decoration: none;
+    		transition: transform 0.2s;
+		}
+
+		.site-logo-link:hover {
+    		transform: scale(1.05); /* Subtle zoom effect on hover */
+		}
+
+		.site-logo-img {
+		height: 80px;   /* Adjust this to change logo size */
+    		width: auto;    /* Keeps the aspect ratio perfect */
+    		display: block;
+		}
+
+		/* --- MOBILE FIXES (Screens smaller than 768px) --- */
+		@media (max-width: 768px) {
+    		header {
+        	padding-top: 2rem; /* Reduce top padding on mobile */
+    		}
+
+    		.site-logo-link {
+        	/* 1. Stop floating in the corner */
+        	position: static; 
+        
+        	/* 2. Center it on the screen */
+        	display: block;
+        	margin: 0 auto 1.5rem auto; 
+        	width: fit-content;
+    		}
+
+    		/* Optional: Make text smaller on mobile so it fits better */
+    		h1 {
+        	font-size: 2.5rem !important; /* Force smaller title on mobile */
+        	margin-top: 0.5rem;
+    		}
+		}            
+
+	/* --- NEW: Filter Bar Styles --- */
+            .filter-bar {
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(5px);
+                padding: 1rem 0;
+                border-bottom: 1px solid #e2e8f0;
+                margin-bottom: 15px;
+                display: flex;
+                gap: 0.5rem;
+                overflow-x: auto; /* Allows horizontal scroll on mobile */
+                white-space: nowrap;
+                justify-content: center;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            }
+
+            .filter-btn {
+                background: white;
+                border: 1px solid #cbd5e1;
+                color: #475569;
+                padding: 0.5rem 1rem;
+                border-radius: 20px;
+                font-size: 0.875rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.2s;
+            }
+
+            .filter-btn:hover {
+                border-color: #2563eb;
+                color: #2563eb;
+            }
+
+            /* Style for the currently active button */
+            .filter-btn.active {
+                background: #2563eb;
+                color: white;
+                border-color: #2563eb;
+            }
+
+            /* --- End Filter Styles --- */
+            
+            .category-section { margin-bottom: 0.5rem; scroll-margin-top: 20px; }
+            .category-title { 
+                font-size: 1.8rem; 
+                color: #334155; 
+                margin-bottom: 1rem; 
+                border-bottom: 2px solid #e2e8f0; 
+                padding-bottom: 0.5rem;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+            }
+
+            .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+            
+            .card { 
+                background: white; 
+                border: 1px solid #e2e8f0; 
+                border-radius: 8px; 
+                padding: 1.5rem; 
+                transition: transform 0.2s; 
+                position: relative; 
+            }
+            .card:hover { transform: translateY(-3px); border-color: #cbd5e1; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+            
+            .category-tag { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; font-weight: bold; }
+            
+            .card-logo {
+                position: absolute;
+                top: 1.5rem;
+                right: 1.5rem;
+                width: 75px;       
+                height: 75px;      
+                object-fit: contain;
+                border-radius: 6px;
+                background: white;
+            }
+
+            .tool-name { 
+                margin: 0.5rem 0; 
+                font-size: 1.25rem; 
+                color: #0f172a; 
+                text-decoration: none; 
+                display: block; 
+                padding-right: 75px; 
+            }
+            
+            .desc { font-size: 0.9rem; color: #475569; line-height: 1.5; }
+            .link { display: inline-block; margin-top: 1rem; color: #2563eb; font-weight: bold; text-decoration: none; }
+        </style>
+	</head>
+	<body>
+        <header>
+	    <a href="/" class="site-logo-link">
+        	<img src="/site-logo2.png" alt="Faceless Stacks Logo" class="site-logo-img" />
+    	    </a>
+            <h1>The <span style="color:red;"> Faceless VDO</span> Creator Stacks</h1>
+            <p>The best AI tools for automating YouTube & TikTok channels, curated for 2025.</p>
+        </header>
+	
+	<div class="container" style="margin-bottom: 0;">
+            <FeaturedRow />
+        </div>
+
+        <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">All Tools</button>
+            
+            {categories.map((cat) => (
+                <button class="filter-btn" data-filter={cat}>{cat}</button>
+            ))}
+        </div>
+        
+        <div class="container">
+            {categories.map((category) => (
+                // 4. Add data-category attribute so JS can find it
+                <section class="category-section" data-category={category}>
+                    <h2 class="category-title">{category}</h2>
+                    
+                    <div class="grid">
+                        {tools.filter(t => t.category === category).map((tool) => (
+                            <div class="card">
+                                <img src={tool.image} alt={`${tool.name} logo`} class="card-logo" loading="lazy" />
+                                <span class="category-tag">{tool.category}</span>
+                                <a href={`/tool/${tool.id}`} class="tool-name">
+                                    {tool.name} &rarr;
+                                </a>
+                                <p class="desc">{tool.description.substring(0, 100)}...</p>
+                                <a href={`/tool/${tool.id}`} class="link">Read Review</a>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            ))}
+        </div>
+
+        <script>
+            // Get all buttons and all sections
+            const buttons = document.querySelectorAll('.filter-btn');
+            const sections = document.querySelectorAll('.category-section');
+
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // 1. Remove 'active' class from all buttons
+                    buttons.forEach(b => b.classList.remove('active'));
+                    // 2. Add 'active' class to clicked button
+                    btn.classList.add('active');
+
+                    const filter = btn.getAttribute('data-filter');
+
+                    // 3. Loop through sections and hide/show based on filter
+                    sections.forEach(section => {
+                        if (filter === 'all' || section.getAttribute('data-category') === filter) {
+                            section.style.display = 'block';
+                        } else {
+                            section.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        </script>
+	<footer style="text-align: center; margin-top: 4rem; padding: 2rem; border-top: 1px solid #e2e8f0; font-size: 0.875rem; color: #64748b;">
+    <p>&copy; 2025 FacelessStacks.com  |  All rights reserved.</p>
+    <div style="margin-top: 0.5rem;">
+        <a href="/privacy" style="color: #64748b; margin: 0 10px; text-decoration: none;">Privacy Policy</a> | 
+        <a href="/disclosure" style="color: #64748b; margin: 0 10px; text-decoration: none;">Affiliate Disclosure</a>
+    </div>
+    <p style="margin-top: 1rem; font-size: 0.75rem;">
+        Disclaimer: This site contains affiliate links. We may earn a commission if you buy through our links.
+    </p>
+</footer>
+	</body>
+</html>
