@@ -1,0 +1,128 @@
+---
+import stacks from '../data/stacks.json';
+import tools from '../data/tools.json';
+
+// Helper function to find tool details by ID
+function getToolById(id) {
+  return tools.find(t => t.id === id);
+}
+
+const pageTitle = "Curated Creator Stacks";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{pageTitle} | Faceless VDO Stacks</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;900&display=swap" rel="stylesheet">
+    
+    <style>
+      /* --- GLOBAL STYLES --- */
+      body { margin: 0; background: #f8fafc; font-family: 'Inter', sans-serif; color: #1e293b; }
+      
+      /* Header (Reuse your main header styles or import component) */
+      header { background: #0f172a; padding: 1.5rem 0; text-align: center; margin-bottom: 3rem; }
+      header a { color: white; text-decoration: none; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.2rem; }
+
+      /* --- STACK LAYOUT --- */
+      .container { max-width: 1000px; margin: 0 auto 5rem auto; padding: 0 1.5rem; }
+
+      .page-intro { text-align: center; margin-bottom: 2rem; }
+      .page-intro h1 { font-family: 'Outfit', sans-serif; font-size: 3rem; margin-bottom: 1rem; color: #0f172a; }
+      .page-intro p { font-size: 1.2rem; color: #64748b; max-width: 600px; margin: 0 auto; }
+
+      /* The Stack Card */
+      .stack-section {
+        background: white;
+        border-radius: 16px;
+        padding: 2.5rem;
+        margin-bottom: 1rem;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+      }
+
+      .stack-header { margin-bottom: 1rem; border-bottom: 1px solid #f1f5f9; padding-bottom: 1.5rem; }
+      .stack-title { font-family: 'Outfit', sans-serif; font-size: 1.8rem; display: flex; align-items: center; gap: 10px; color: #0f172a; margin: 0 0 0.5rem 0; }
+      .stack-desc { color: #64748b; font-size: 1.05rem; }
+
+      /* The Tool Grid inside the Stack */
+      .tool-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .mini-tool-card {
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 1rem;
+        text-align: center;
+        transition: transform 0.2s, border-color 0.2s;
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .mini-tool-card:hover { transform: translateY(-3px); border-color: #2563eb; background: white; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1); }
+
+      .tool-logo {width: 75px; height: 75px; border-radius: 8px; object-fit: contain; /* CHANGED: Ensures the whole logo is visible */
+    background: white;   /* ADDED: Keeps transparent logos looking clean */margin-bottom: 0.75rem;}
+
+      .tool-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.25rem; }
+      .tool-cat { font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; font-weight: 600; }
+
+      /* Back Button */
+      .back-nav { display: block; margin-bottom: 2rem; color: #64748b; text-decoration: none; font-weight: 600; }
+      .back-nav:hover { color: #2563eb; }
+
+      @media(max-width: 600px) {
+        .page-intro h1 { font-size: 2rem; }
+        .stack-section { padding: 1.5rem; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <header>
+        <a href="/">The Faceless VDO Creator Stacks</a>
+    </header>
+
+    <main class="container">
+        <a href="/" class="back-nav">&larr; Back to Full Directory</a>
+
+        <div class="page-intro">
+            <h1>Proven Workflows</h1>
+            <p>Stop guessing which tools work together. These are the battle-tested combinations for specific channel types.</p>
+        </div>
+
+        {stacks.map((stack) => (
+            <div class="stack-section" id={stack.id}>
+                <div class="stack-header">
+                    <h2 class="stack-title"><span>{stack.icon}</span> {stack.title}</h2>
+                    <p class="stack-desc">{stack.description}</p>
+                </div>
+
+                <div class="tool-grid">
+                    {stack.tools.map((toolId) => {
+                        const tool = getToolById(toolId);
+                        // Only render if tool exists (prevents crashes if ID is wrong)
+                        if (!tool) return null; 
+                        return (
+                            <a href={`/tool/${tool.id}`} class="mini-tool-card">
+                                <img src={tool.image} alt={tool.name} class="tool-logo" />
+                                <div class="tool-name">{tool.name}</div>
+                                <div class="tool-cat">{tool.category}</div>
+                            </a>
+                        );
+                    })}
+                </div>
+            </div>
+        ))}
+
+    </main>
+
+  </body>
+</html>

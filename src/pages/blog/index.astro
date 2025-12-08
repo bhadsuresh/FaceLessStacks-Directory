@@ -1,0 +1,114 @@
+---
+// 1. Auto-fetch all Markdown files from the current folder
+const allPosts = await Astro.glob('./*.md');
+
+// 2. Sort posts by date (Newest first)
+const sortedPosts = allPosts.sort((a, b) => 
+    new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+);
+
+const pageTitle = "The Faceless Creator Blog";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{pageTitle}</title>
+    <meta name="description" content="Strategies, tutorials, and comparisons for growing a faceless YouTube automation channel." />
+    <style>
+      body { font-family: 'Inter', system-ui, sans-serif; background: #f8fafc; color: #1e293b; margin: 0; padding: 0; }
+      
+      /* Reusing your Header Style for consistency */
+      header {
+        position: relative;
+        text-align: center;
+        padding: 6rem 1rem 4rem 1rem;
+        background-color: #0f172a;
+        background-image: 
+            radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+            radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+            radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+        color: white;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+
+      .container { max-width: 900px; margin: -3rem auto 3rem auto; padding: 0 1.5rem; position: relative; z-index: 10; }
+
+      /* Blog Grid */
+      .blog-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+      
+      .blog-card {
+        background: white;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 2rem;
+        transition: transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+      .blog-card:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); border-color: #cbd5e1; }
+
+      .category { 
+        text-transform: uppercase; 
+        font-size: 0.75rem; 
+        font-weight: 700; 
+        letter-spacing: 0.05em; 
+        color: #2563eb; 
+        margin-bottom: 0.5rem; 
+        display: block;
+      }
+      
+      .post-title { margin: 0 0 0.75rem 0; font-size: 1.5rem; color: #0f172a; }
+      .post-title a { text-decoration: none; color: inherit; }
+      
+      .excerpt { color: #64748b; line-height: 1.6; margin-bottom: 1.5rem; }
+      
+      .meta { font-size: 0.875rem; color: #94a3b8; display: flex; justify-content: space-between; align-items: center; }
+      .read-btn { color: #0f172a; font-weight: 600; text-decoration: none; }
+      .read-btn:hover { text-decoration: underline; color: #2563eb; }
+
+      /* Logo for Header */
+      .site-logo-link { position: absolute; top: 2rem; left: 2rem; }
+      .site-logo-img { height: 50px; width: auto; }
+      
+      @media (max-width: 768px) {
+        .site-logo-link { position: static; display: block; margin: 0 auto 1.5rem auto; width: fit-content; }
+        header { padding-top: 2rem; }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header>
+        <a href="/" class="site-logo-link">
+            <img src="/site-logo2.png" alt="Logo" class="site-logo-img" />
+        </a>
+        <h1 style="margin:0; font-size: 2.5rem;">The Creator Blog</h1>
+        <p style="color: #94a3b8; margin-top: 0.5rem;">Insights on AI, Automation, and Viral Growth.</p>
+    </header>
+
+    <main class="container">
+      <div class="blog-grid">
+        {sortedPosts.map((post) => (
+          <article class="blog-card">
+            <span class="category">{post.frontmatter.category}</span>
+            <h2 class="post-title">
+                <a href={post.url}>{post.frontmatter.title}</a>
+            </h2>
+            <p class="excerpt">{post.frontmatter.description}</p>
+            
+            <div class="meta">
+                <span>{post.frontmatter.pubDate}</span>
+                <a href={post.url} class="read-btn">Read Article &rarr;</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </main>
+
+    <footer style="text-align: center; margin: 4rem 0; color: #64748b; font-size: 0.9rem;">
+        <a href="/" style="color: #64748b; text-decoration: none;">&larr; Back to Tool Directory</a>
+    </footer>
+
+  </body>
+</html>

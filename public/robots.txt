@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Replace with your actual domain when you launch
+Sitemap: https://www.facelessstacks.com/sitemap.xml

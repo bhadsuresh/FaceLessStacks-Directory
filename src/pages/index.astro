@@ -3,7 +3,7 @@
 import tools from '../data/tools.json';
 import FeaturedRow from '../components/FeaturedRow.astro';
 
-const pageTitle = "The Faceless VDO Creator Stacks | Top Tools for 2025";
+const pageTitle = "The Faceless VDO Creator Stacks | Top AI Tools";
 
 // 2. Get unique categories and sort them
 const categories = [...new Set(tools.map(tool => tool.category))].sort();
@@ -17,7 +17,7 @@ const categories = [...new Set(tools.map(tool => tool.category))].sort();
     <meta name="generator" content={Astro.generator} />
 
     <title>{pageTitle}</title>
-    <meta name="description" content="A curated directory of the best AI tools for building Faceless YouTube and TikTok channels. Compare pricing, features, and read reviews for 2025." />
+    <meta name="description" content="A curated directory of the best AI tools/all in-one-stacks for building Faceless YouTube and TikTok channels. Compare pricing, features, and read reviews for 2025." />
     <link rel="canonical" href={Astro.url} />
 
     <meta property="og:type" content="website" />
@@ -82,6 +82,7 @@ const categories = [...new Set(tools.map(tool => tool.category))].sort();
         	radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
     		color: white; /* Make text white to pop */
     		border-bottom: 1px solid rgba(255,255,255,0.1);
+		margin-bottom: 1rem;
 		}
 
            /*---h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }---*/
@@ -135,48 +136,88 @@ const categories = [...new Set(tools.map(tool => tool.category))].sort();
     		}
 		}            
 
-	/* --- NEW: Filter Bar Styles --- */
-            .filter-bar {
-                position: sticky;
-                top: 0;
-                z-index: 100;
-                background: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(5px);
-                padding: 1rem 0;
-                border-bottom: 1px solid #e2e8f0;
-                margin-bottom: 15px;
-                display: flex;
-                gap: 0.5rem;
-                overflow-x: auto; /* Allows horizontal scroll on mobile */
-                white-space: nowrap;
-                justify-content: center;
-                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            }
+	/* --- MODERN FILTER BAR --- */
+/* --- MODERN FILTER BAR CONTAINER --- */
+.filter-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    
+    /* Glass Effect */
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    
+    /* Layout */
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    padding: 1rem 5%;
+    margin-bottom: 2rem;
+    
+    /* Default: Scrollable (Mobile) */
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    
+    /* Hide Scrollbars */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.filter-bar::-webkit-scrollbar { display: none; }
 
-            .filter-btn {
-                background: white;
-                border: 1px solid #cbd5e1;
-                color: #475569;
-                padding: 0.5rem 1rem;
-                border-radius: 20px;
-                font-size: 0.875rem;
-                font-weight: 600;
-                cursor: pointer;
-                transition: all 0.2s;
-            }
+/* --- THE "PILL" BUTTONS --- */
+.filter-btn {
+    /* Reset Defaults */
+    appearance: none;
+    border: 1px solid transparent;
+    outline: none;
+    font-family: inherit;
+    
+    /* Modern Look */
+    background: #f1f5f9;       /* Very light grey */
+    color: #64748b;            /* Muted slate text */
+    padding: 0.6rem 1.25rem;   /* Comfortable touch size */
+    border-radius: 9999px;     /* Full "Pill" Rounding */
+    
+    /* Typography */
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    cursor: pointer;
+    
+    /* Smooth Animation */
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+}
 
-            .filter-btn:hover {
-                border-color: #2563eb;
-                color: #2563eb;
-            }
+/* Hover State */
+.filter-btn:hover {
+    background: #e2e8f0;       /* Slightly darker on hover */
+    color: #0f172a;            /* Darker text */
+    transform: translateY(-1px); /* Micro-lift */
+}
 
-            /* Style for the currently active button */
-            .filter-btn.active {
-                background: #2563eb;
-                color: white;
-                border-color: #2563eb;
-            }
+/* Active/Selected State (You can add class="active" to 'All Tools' manually if needed) */
+.filter-btn.active {
+    background: #0f172a;       /* Dark Brand Color */
+    color: white;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.3); /* Soft Glow */
+    transform: translateY(-1px);
+}
 
+/* --- DESKTOP TWEAK: VIEW ALL --- */
+/* On larger screens, wrap the buttons so they are all visible */
+@media (min-width: 900px) {
+    .filter-bar {
+        flex-wrap: wrap;         /* Enable wrapping */
+        justify-content: center; /* Center them nicely */
+        padding: 1.5rem 10%;     /* More breathing room */
+        overflow: visible;
+    }
+}
             /* --- End Filter Styles --- */
             
             .category-section { margin-bottom: 0.5rem; scroll-margin-top: 20px; }
@@ -226,6 +267,33 @@ const categories = [...new Set(tools.map(tool => tool.category))].sort();
             
             .desc { font-size: 0.9rem; color: #475569; line-height: 1.5; }
             .link { display: inline-block; margin-top: 1rem; color: #2563eb; font-weight: bold; text-decoration: none; }
+
+	    .blog-nav-link {
+    		position: absolute;
+    		top: 2rem;
+    		right: 2rem;
+    		color: white;
+    		text-decoration: none;
+    		font-weight: 600;
+    		border: 1px solid rgba(255,255,255,0.3);
+    		padding: 8px 16px;
+    		border-radius: 20px;
+    		transition: all 0.2s;
+    		background: rgba(0,0,0,0.2);
+		}
+
+		.blog-nav-link:hover {
+    		background: white;
+    		color: #0f172a;
+		}
+
+		@media (max-width: 768px) {
+    		.blog-nav-link {
+        	position: static;
+        	display: inline-block;
+        	margin-top: 1rem;
+    		}
+	}
         </style>
 	</head>
 	<body>
@@ -233,8 +301,14 @@ const categories = [...new Set(tools.map(tool => tool.category))].sort();
 	    <a href="/" class="site-logo-link">
         	<img src="/site-logo2.png" alt="Faceless Stacks Logo" class="site-logo-img" />
     	    </a>
+	    <a href="/blog" class="blog-nav-link">Read our Blogs &rarr;</a>
+	    <a href="/stacks" style="background: #2563eb; color: white; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 6px rgba(37,99,235,0.3);">
+        🚀 View Workflows
+    	    </a>
+
             <h1>The <span style="color:red;"> Faceless VDO</span> Creator Stacks</h1>
-            <p>The best AI tools for automating YouTube & TikTok channels, curated for 2025.</p>
+            <p>Not Just Any! Directory of the best, curated AI tools for automating YouTube & TikTok channels.</p>
+
         </header>
 	
 	<div class="container" style="margin-bottom: 0;">

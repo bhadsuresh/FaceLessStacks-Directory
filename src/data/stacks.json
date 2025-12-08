@@ -1,0 +1,30 @@
+[
+  {
+    "id": "zero-dollar-stack",
+    "title": "The $0 Start Stack",
+    "description": "No budget? No problem. Launch a profitable channel today without spending a dime using this free-tier combination.",
+    "tools": ["chatgpt", "canva", "capcut", "google-docs"],
+    "icon": "💸"
+  },
+  {
+    "id": "viral-shorts-stack",
+    "title": "The Viral Shorts Stack",
+    "description": "The exact workflow used by top creators to churn out 3 high-retention Shorts every single day.",
+    "tools": ["opus-clip", "subscribr", "elevenlabs", "midjourney"],
+    "icon": "🚀"
+  },
+  {
+    "id": "high-ticket-automation",
+    "title": "The High-Ticket Documentary Stack",
+    "description": "Build a 'MagnatesMedia' style channel. High production value tools for long-form documentaries that attract premium advertisers.",
+    "tools": ["invideo-ai", "elevenlabs", "storyblocks", "adobe-podcast"],
+    "icon": "💎"
+  },
+  {
+    "id": "global-expansion-stack",
+    "title": "The Global Expansion Stack",
+    "description": "Don't limit yourself to English. Tools to translate, dub, and clone your voice into Spanish and Hindi instantly.",
+    "tools": ["rask-ai", "elevenlabs", "chatgpt", "youtube-studio"],
+    "icon": "🌍"
+  }
+]

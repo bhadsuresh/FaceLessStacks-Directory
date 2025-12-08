@@ -1,0 +1,197 @@
+---
+const { frontmatter } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{frontmatter.title}</title>
+    
+    <style is:global>
+      /* 1. RESET DEFAULTS */
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      
+      body {
+        background-color: #f8fafc; /* Very Light Blue-Grey */
+        color: #334155;            /* Slate Text */
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        line-height: 1.7;          /* Relaxed reading height */
+      }
+
+      /* 2. HEADER */
+      header {
+        background: #0f172a;       /* Dark Navy */
+        padding: 1.25rem 0;
+        text-align: center;
+        margin-bottom: 4rem;
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+      }
+      header a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.1rem;
+        letter-spacing: -0.01em;
+      }
+
+      /* 3. MAIN CARD CONTAINER */
+      .blog-wrapper {
+        max-width: 760px;          /* Optimal reading width */
+        margin: 0 auto 5rem auto;
+        padding: 0 1.5rem;
+      }
+
+      .blog-card {
+        background: #ffffff;
+        padding: 4rem;             /* Generous whitespace */
+        border-radius: 16px;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+        border: 1px solid #e2e8f0;
+      }
+
+      /* 4. TITLE & META */
+      .post-title {
+        font-size: 2.75rem;
+        font-weight: 800;
+        color: #0f172a;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+        letter-spacing: -0.03em;
+      }
+
+      .post-meta {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        color: #64748b;
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid #f1f5f9;
+      }
+      
+      .category-pill {
+        background: #eff6ff;
+        color: #2563eb;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+      }
+
+      /* 5. MARKDOWN CONTENT STYLING (The Prose) */
+      .prose { 
+        font-size: 1.125rem; /* 18px */
+        color: #334155; 
+      }
+
+      .prose p { margin-bottom: 1.75rem; }
+      
+      /* Beautiful Headings */
+      .prose h2 {
+        font-size: 1.8rem;
+        color: #0f172a;
+        margin-top: 3.5rem;
+        margin-bottom: 1.25rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .prose h3 {
+        font-size: 1.35rem;
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+        color: #1e293b;
+        font-weight: 600;
+      }
+
+      /* Links */
+      .prose a { 
+        color: #2563eb; 
+        text-decoration: underline; 
+        text-underline-offset: 3px;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+      .prose a:hover { color: #1e40af; }
+      
+      /* Lists */
+      .prose ul, .prose ol { margin-bottom: 2rem; padding-left: 1.5rem; }
+      .prose li { margin-bottom: 0.75rem; }
+
+      /* Quote Block */
+      .prose blockquote {
+        border-left: 4px solid #2563eb;
+        background: #f8fafc;
+        padding: 1.5rem 2rem;
+        margin: 2.5rem 0;
+        font-style: italic;
+        color: #475569;
+        border-radius: 0 8px 8px 0;
+      }
+
+      /* Images */
+      .prose img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+        margin: 2.5rem 0;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      /* Back Button */
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        margin-bottom: 2rem;
+        color: #64748b;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: transform 0.2s;
+      }
+      .back-link:hover { color: #2563eb; transform: translateX(-4px); }
+
+      /* Mobile Responsive */
+      @media (max-width: 640px) {
+        .blog-card { padding: 2rem 1.5rem; }
+        .post-title { font-size: 2rem; }
+        .prose { font-size: 1rem; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <a href="/">The Faceless VDO Creator Stacks</a>
+    </header>
+
+    <div class="blog-wrapper">
+      <a href="/blog" class="back-link">&larr; Back to Articles</a>
+      
+      <article class="blog-card">
+        <h1 class="post-title">{frontmatter.title}</h1>
+        
+        <div class="post-meta">
+          <span class="category-pill">{frontmatter.category}</span>
+          <span>{frontmatter.pubDate}</span>
+        </div>
+
+        <div class="prose">
+            <slot />
+        </div>
+      </article>
+
+      <footer style="text-align: center; margin-top: 4rem; color: #94a3b8; font-size: 0.85rem;">
+        &copy; 2025 FacelessStacks.com
+      </footer>
+    </div>
+
+  </body>
+</html>
