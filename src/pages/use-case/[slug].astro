@@ -1,0 +1,87 @@
+---
+import tools from "@data/tools.json";
+
+/**
+ * Build all use-case pages
+ */
+export async function getStaticPaths() {
+  const useCases = new Set();
+
+  tools.forEach(tool => {
+    if (Array.isArray(tool.useCases)) {
+      tool.useCases.forEach(u => useCases.add(u));
+    }
+  });
+
+  return [...useCases].map(slug => ({
+    params: { slug }
+  }));
+}
+
+const { slug } = Astro.params;
+
+/**
+ * Filter tools for this use case
+ */
+const matchedTools = tools.filter(
+  tool => tool.useCases?.includes(slug)
+);
+
+/**
+ * Prevent thin pages
+ */
+if (!matchedTools.length) {
+  throw new Error(`No tools found for use case: ${slug}`);
+}
+
+/**
+ * SEO
+ */
+const readable = slug.replace(/-/g, " ");
+const title = `Best AI Tools for ${readable} (2025)`;
+const description = `Discover the best AI tools for ${readable}. Compare features, pricing, and find the right solution for your workflow.`;
+
+/**
+ * Sort by rating
+ */
+matchedTools.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+---
+
+<html lang="en">
+  <head>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link
+      rel="canonical"
+      href={`https://face-less-stacks-directory.vercel.app/use-case/${slug}`}
+    />
+  </head>
+
+  <body>
+    <main class="container">
+      <header>
+        <h1>{title}</h1>
+        <p>
+          Below is a curated list of AI tools best suited for
+          <strong>{readable}</strong>.
+        </p>
+      </header>
+
+      <section>
+        {matchedTools.map(tool => (
+          <article class="tool-card">
+            <h2>
+              <a href={`/tools/${tool.slug}`}>{tool.name}</a>
+            </h2>
+
+            {tool.rating && <p>⭐ {tool.rating}</p>}
+
+            <p>{tool.description}</p>
+
+            <a href={`/tools/${tool.slug}`}>View Details →</a>
+          </article>
+        ))}
+      </section>
+    </main>
+  </body>
+</html>

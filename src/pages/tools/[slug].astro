@@ -1,0 +1,272 @@
+---
+import tools from '../../data/tools.json';
+
+export async function getStaticPaths() {
+  return tools.map((tool) => {
+    return {
+      params: { slug: tool.id },
+      props: { tool },
+    };
+  });
+}
+
+const { tool } = Astro.props;
+
+// Default to 4.5 if no rating exists in JSON
+const rating = tool.rating || 4.5; 
+const starCount = Math.floor(rating);
+const hasHalfStar = rating % 1 !== 0;
+
+const pageTitle = `${tool.name} Review 2025: Is it worth it?`;
+const pageDescription = `Full review of ${tool.name}. Pricing, features, and why it is the top choice for ${tool.category}.`;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <style>
+      /* --- GLOBAL RESET & TYPOGRAPHY --- */
+      body { 
+        font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+        background-color: #f8fafc; 
+        color: #1e293b; 
+        margin: 0; 
+        line-height: 1.6; 
+      }
+
+      /* --- LAYOUT GRID --- */
+      .page-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 1rem;
+        display: grid;
+        grid-template-columns: 1fr 350px; /* Main Content + Sidebar */
+        gap: 2rem;
+      }
+
+      /* --- HEADER / HERO --- */
+      .breadcrumb { font-size: 0.875rem; color: #64748b; margin-bottom: 1rem; }
+      .breadcrumb a { color: #64748b; text-decoration: none; transition: color 0.2s; }
+      .breadcrumb a:hover { color: #2563eb; }
+
+      .hero-header {
+        background: white;
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        padding: 2rem;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      .hero-logo {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        background: #f1f5f9;
+        border-radius: 12px;
+        padding: 10px;
+      }
+
+      .hero-content h1 { margin: 0 0 0.5rem 0; font-size: 2.5rem; letter-spacing: -0.02em; }
+      
+      .badges { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; margin-top: 0.5rem; }
+      .badge { 
+        padding: 4px 12px; 
+        border-radius: 20px; 
+        font-size: 0.85rem; 
+        font-weight: 600; 
+        text-transform: uppercase; 
+        letter-spacing: 0.05em;
+      }
+      .badge-category { background: #e0e7ff; color: #3730a3; }
+      .badge-verified { background: #dcfce7; color: #166534; display: flex; align-items: center; gap: 4px; }
+
+      /* --- CONTENT AREA --- */
+      .content-card {
+        background: white;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      h2 { font-size: 1.75rem; margin-top: 0; color: #0f172a; }
+      h3 { font-size: 1.25rem; margin-top: 2rem; color: #334155; }
+      p { color: #475569; font-size: 1.05rem; }
+
+      /* Feature Grid */
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
+      .feature-item {
+        background: #f8fafc;
+        padding: 1rem;
+        border-radius: 8px;
+        border: 1px solid #e2e8f0;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 500;
+        color: #334155;
+      }
+      .check-icon { color: #2563eb; font-weight: bold; }
+
+      /* Pros & Cons (Optional Support) */
+      .verdict-box {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-top: 2rem;
+        border-top: 1px solid #e2e8f0;
+        padding-top: 2rem;
+      }
+      .pros h3 { color: #166534; margin-top: 0; }
+      .cons h3 { color: #991b1b; margin-top: 0; }
+      .list-item { display: flex; gap: 10px; margin-bottom: 0.5rem; color: #475569; }
+
+      /* --- STICKY SIDEBAR --- */
+      .sidebar { position: sticky; top: 100px; height: fit-content; }
+      
+      .cta-card {
+        background: white;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      }
+      
+      .rating-box { margin-bottom: 1.5rem; }
+      .stars { font-size: 1.5rem; color: #fbbf24; letter-spacing: 2px; }
+      .rating-text { color: #64748b; font-size: 0.9rem; margin-top: 5px; font-weight: 500; }
+
+      .price-tag { font-size: 1.5rem; font-weight: 800; color: #0f172a; margin: 1rem 0; }
+      .price-sub { font-size: 0.9rem; color: #64748b; font-weight: normal; }
+
+      .btn-primary {
+        display: block;
+        width: 100%;
+        background: #2563eb;
+        color: white;
+        padding: 1rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: background 0.2s;
+        box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+        box-sizing: border-box; /* Ensures padding doesn't overflow width */
+      }
+      .btn-primary:hover { background: #1d4ed8; transform: translateY(-1px); }
+
+      .disclaimer { font-size: 0.75rem; color: #94a3b8; margin-top: 1rem; }
+
+      /* --- MOBILE RESPONSIVE --- */
+      @media (max-width: 800px) {
+        .page-container { grid-template-columns: 1fr; }
+        .hero-header { flex-direction: column; text-align: center; }
+        .verdict-box { grid-template-columns: 1fr; }
+        .sidebar { position: static; } /* Unstick sidebar on mobile */
+      }
+    </style>
+  </head>
+  
+  <body>
+    <div style="max-width: 1100px; margin: 1rem auto; padding: 0 2rem;">
+        <nav class="breadcrumb">
+            <a href="/">Home</a> &rsaquo; <span>{tool.category}</span> &rsaquo; <span style="color:#0f172a">{tool.name}</span>
+        </nav>
+    </div>
+
+    <main class="page-container">
+        <div class="main-content">
+            
+            <header class="hero-header">
+                <img src={tool.image} alt={tool.name} class="hero-logo" />
+                <div class="hero-content">
+                    <h1>{tool.name}</h1>
+                    <div class="badges">
+                        <span class="badge badge-category">{tool.category}</span>
+                        {tool.verified && <span class="badge badge-verified">✓ Verified Tool</span>}
+                    </div>
+                </div>
+            </header>
+
+            <section class="content-card">
+                <h2>What is {tool.name}?</h2>
+                <p>{tool.description}</p>
+                
+                <h3>Key Features</h3>
+                <div class="feature-grid">
+                    {tool.features.map(f => (
+                        <div class="feature-item">
+                            <span class="check-icon">✓</span> {f}
+                        </div>
+                    ))}
+                </div>
+
+                {(tool.pros || tool.cons) && (
+                    <div class="verdict-box">
+                        {tool.pros && (
+                            <div class="pros">
+                                <h3>👍 The Good</h3>
+                                {tool.pros.map(p => <div class="list-item"><span>+</span> {p}</div>)}
+                            </div>
+                        )}
+                        {tool.cons && (
+                            <div class="cons">
+                                <h3>👎 The Bad</h3>
+                                {tool.cons.map(c => <div class="list-item"><span>-</span> {c}</div>)}
+                            </div>
+                        )}
+                    </div>
+                )}
+            </section>
+
+            <section class="content-card">
+                <h2>Our Verdict</h2>
+                <p>Based on our analysis of the {tool.category} market in 2025, <strong>{tool.name}</strong> stands out for its specific focus on {tool.tags ? tool.tags[0] : "creators"}.</p>
+                <p>If you are looking for a reliable solution that offers <strong>{tool.features[0]}</strong>, this is likely your best bet. However, always double-check the current pricing as SaaS costs change frequently.</p>
+            </section>
+        </div>
+
+        <aside class="sidebar">
+            <div class="cta-card">
+                <div class="rating-box">
+                    <div class="stars">
+                        {'★'.repeat(starCount)}{hasHalfStar ? '½' : ''}
+                    </div>
+                    <div class="rating-text">{rating}/5 Editor Rating</div>
+                </div>
+
+                <div class="price-tag">
+                    {tool.pricing}
+                </div>
+
+                <a href={tool.affiliate_link} target="_blank" rel="noopener noreferrer" class="btn-primary">
+                    Visit Website &rarr;
+                </a>
+
+                <p class="disclaimer">
+                    Free trial available.<br/>
+                    30-day money-back guarantee (check site).
+                </p>
+            </div>
+        </aside>
+
+    </main>
+
+    <footer style="text-align: center; margin-top: 4rem; padding: 2rem; border-top: 1px solid #e2e8f0; font-size: 0.875rem; color: #64748b;">
+        <p>&copy; 2025 FacelessStacks.com | All rights reserved.</p>
+    </footer>
+  </body>
+</html>

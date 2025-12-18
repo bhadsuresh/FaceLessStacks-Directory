@@ -338,7 +338,7 @@ const categories = [...new Set(tools.map(tool => tool.category))].sort();
                                     {tool.name} &rarr;
                                 </a>
                                 <p class="desc">{tool.description.substring(0, 100)}...</p>
-                                <a href={`/tool/${tool.id}`} class="link">Read Review</a>
+                                <a href={`/tools/${tool.id}`} class="link">Read Review</a>
                             </div>
                         ))}
                     </div>

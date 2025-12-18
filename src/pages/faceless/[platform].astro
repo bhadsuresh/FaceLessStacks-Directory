@@ -1,0 +1,45 @@
+---
+import tools from "../../data/tools.json";
+
+export async function getStaticPaths() {
+  const platforms = ["youtube", "instagram", "tiktok"];
+
+  return platforms.map(platform => ({
+    params: { platform }
+  }));
+}
+
+const { platform } = Astro.params;
+
+const filteredTools = tools.filter(
+  tool => tool.platforms.includes(platform)
+);
+
+const title = `Best AI Tools for Faceless ${platform.charAt(0).toUpperCase() + platform.slice(1)} Videos`;
+const description = `Discover the best AI tools to create faceless ${platform} videos without showing your face. Automate scripts, voiceovers, and publishing.`;
+---
+<html>
+  <head>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body>
+    <h1>{title}</h1>
+
+    <p>
+      Looking to create faceless {platform} videos using AI?
+      These tools help you automate content creation without showing your face.
+    </p>
+
+    <ul>
+      {filteredTools.map(tool => (
+        <li>
+          <a href={`/tools/${tool.slug}`}>
+            {tool.name}
+          </a>
+          <p>{tool.description}</p>
+        </li>
+      ))}
+    </ul>
+  </body>
+</html>

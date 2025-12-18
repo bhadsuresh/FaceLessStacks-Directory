@@ -1,0 +1,22 @@
+[
+  {
+    "slug": "youtube",
+    "name": "YouTube",
+    "description": "Best platform for long-form and shorts-based faceless video monetization."
+  },
+  {
+    "slug": "instagram",
+    "name": "Instagram",
+    "description": "Ideal for faceless reels, motivational clips, and viral short videos."
+  },
+  {
+    "slug": "tiktok",
+    "name": "TikTok",
+    "description": "High-growth platform for faceless short-form AI-generated videos."
+  },
+  {
+    "slug": "facebook",
+    "name": "Facebook",
+    "description": "Good for faceless reel distribution and ad monetization."
+  }
+]

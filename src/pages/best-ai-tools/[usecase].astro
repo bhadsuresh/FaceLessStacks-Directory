@@ -1,0 +1,18 @@
+---
+import tools from "../../data/tools.json";
+
+export async function getStaticPaths() {
+  const usecases = [
+    "faceless-youtube",
+    "youtube-automation",
+    "faceless-reels"
+  ];
+
+  return usecases.map(usecase => ({
+    params: { usecase }
+  }));
+}
+
+const { usecase } = Astro.params;
+---
+<h1>Best AI Tools for {usecase.replace("-", " ")}</h1>

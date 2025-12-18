@@ -111,7 +111,7 @@ const pageTitle = "Curated Creator Stacks";
                         // Only render if tool exists (prevents crashes if ID is wrong)
                         if (!tool) return null; 
                         return (
-                            <a href={`/tool/${tool.id}`} class="mini-tool-card">
+                            <a href={`/tools/${tool.id}`} class="mini-tool-card">
                                 <img src={tool.image} alt={tool.name} class="tool-logo" />
                                 <div class="tool-name">{tool.name}</div>
                                 <div class="tool-cat">{tool.category}</div>

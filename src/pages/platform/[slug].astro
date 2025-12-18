@@ -1,0 +1,111 @@
+---
+import tools from "@data/tools.json";
+
+/**
+ * Build all platform pages
+ */
+export async function getStaticPaths() {
+  const platforms = new Set();
+
+  tools.forEach(tool => {
+    if (Array.isArray(tool.platforms)) {
+      tool.platforms.forEach(p => platforms.add(p));
+    }
+  });
+
+  return [...platforms].map(slug => ({
+    params: { slug }
+  }));
+}
+
+const { slug } = Astro.params;
+
+/**
+ * Filter tools for this platform
+ */
+const matchedTools = tools.filter(
+  tool => tool.platforms?.includes(slug)
+);
+
+/**
+ * Prevent thin pages
+ */
+if (!matchedTools.length) {
+  throw new Error(`No tools found for platform: ${slug}`);
+}
+
+/**
+ * SEO
+ */
+const platformName =
+  slug.charAt(0).toUpperCase() + slug.slice(1);
+
+const title = `Best AI Tools for ${platformName} Creators (2025)`;
+const description = `Discover the best AI tools for ${platformName} creators to build faceless videos, automate workflows, and grow faster.`;
+
+/**
+ * Sort by rating
+ */
+matchedTools.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+
+/**
+ * Collect related use cases
+ */
+const relatedUseCases = [
+  ...new Set(matchedTools.flatMap(t => t.useCases || []))
+].slice(0, 6);
+---
+
+<html lang="en">
+  <head>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link
+      rel="canonical"
+      href={`https://face-less-stacks-directory.vercel.app/platform/${slug}`}
+    />
+  </head>
+
+  <body>
+    <main class="container">
+      <header>
+        <h1>{title}</h1>
+        <p>
+          These AI tools are optimized for creators publishing content on
+          <strong>{platformName}</strong>.
+        </p>
+      </header>
+
+      <section>
+        {matchedTools.map(tool => (
+          <article class="tool-card">
+            <h2>
+              <a href={`/tools/${tool.slug}`}>{tool.name}</a>
+            </h2>
+
+            {tool.rating && <p>⭐ {tool.rating}</p>}
+
+            <p>{tool.description}</p>
+
+            <a href={`/tools/${tool.slug}`}>View Details →</a>
+          </article>
+        ))}
+      </section>
+
+      {relatedUseCases.length > 0 && (
+        <section>
+          <h3>{platformName} Use Cases</h3>
+          <ul>
+            {relatedUseCases.map(u => (
+              <li>
+                <a href={`/use-case/${u}`}>
+                  {u.replace(/-/g, " ")}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </main>
+  </body>
+</html>

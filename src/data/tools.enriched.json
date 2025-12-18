@@ -18,8 +18,8 @@
       "Beginner Friendly",
       "All-in-One"
     ],
-    "verified": true,
-    "rating": 4.8,
+    "verified": "true",
+    "rating": "4.8",
     "pros": [
       "Generates entire videos from a single prompt",
       "Huge library of royalty-free stock footage",
@@ -42,11 +42,7 @@
       "youtube-automation",
       "faceless-reels",
       "shorts-creation"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "murf-ai",
@@ -66,8 +62,8 @@
       "High Quality",
       "Documentary Style"
     ],
-    "verified": true,
-    "rating": 4.7,
+    "verified": "true",
+    "rating": "4.7",
     "pros": [
       "Voices sound incredibly professional and polished",
       "Ability to adjust pitch, speed, and emphasis",
@@ -87,11 +83,7 @@
       "faceless-youtube",
       "narration",
       "story-videos"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "elevenlabs",
@@ -111,8 +103,8 @@
       "Viral",
       "Best Value"
     ],
-    "verified": true,
-    "rating": 4.9,
+    "verified": "true",
+    "rating": "4.9",
     "pros": [
       "Best-in-class emotional range (whispering, shouting)",
       "Instant voice cloning is shockingly accurate",
@@ -132,11 +124,7 @@
       "faceless-youtube",
       "narration",
       "story-videos"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "opus-clip",
@@ -156,8 +144,8 @@
       "Shorts",
       "Viral Tool"
     ],
-    "verified": true,
-    "rating": 4.8,
+    "verified": "true",
+    "rating": "4.8",
     "pros": [
       "Saves hours of editing time for Shorts/TikToks",
       "AI 'Viral Score' helps choose the best clips",
@@ -176,11 +164,7 @@
     "useCases": [
       "shorts-repurposing",
       "faceless-reels"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "subscribr",
@@ -200,8 +184,8 @@
       "Specialized",
       "High Retention"
     ],
-    "verified": true,
-    "rating": 4.4,
+    "verified": "true",
+    "rating": "4.4",
     "pros": [
       "Trained specifically on YouTube data, not generic text",
       "Great for breaking writer's block",
@@ -216,18 +200,15 @@
       "youtube"
     ],
     "useCases": [
-      "youtube-automation"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+      "youtube-automation",
+      "script-generation"
+    ]
   },
   {
     "id": "1of10",
     "name": "1of10",
     "image": "/logos/1of10.png",
-    "category": "Growth & SEO",
+    "category": "Growth & Thumbnails",
     "description": "A data engine that finds 'Outlier' videos (viral hits) in your niche to help you replicate their success. Includes an AI thumbnail generator.",
     "pricing": "$29 mo",
     "affiliate_link": "YOUR_AFFILIATE_LINK_HERE",
@@ -241,8 +222,8 @@
       "Analytics",
       "Thumbnail Design"
     ],
-    "verified": true,
-    "rating": 4.6,
+    "verified": "true",
+    "rating": "4.6",
     "pros": [
       "Finds video ideas that are mathematically proven to work",
       "Thumbnail tools are very specific to YouTube CTR",
@@ -258,11 +239,7 @@
     ],
     "useCases": [
       "faceless-youtube"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "vidiq",
@@ -282,8 +259,8 @@
       "SEO",
       "Essential"
     ],
-    "verified": true,
-    "rating": 4.5,
+    "verified": "true",
+    "rating": "4.5",
     "pros": [
       "The 'Competition Score' is invaluable for small channels",
       "Daily AI ideas are surprisingly relevant",
@@ -300,11 +277,7 @@
     "useCases": [
       "youtube-growth",
       "keyword-research"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "pictory",
@@ -324,8 +297,8 @@
       "Listicles",
       "Bulk Creation"
     ],
-    "verified": true,
-    "rating": 4.3,
+    "verified": "true",
+    "rating": "4.3",
     "pros": [
       "Excellent for turning articles into videos quickly",
       "Automatic B-roll selection is decent",
@@ -347,11 +320,7 @@
       "youtube-automation",
       "faceless-reels",
       "shorts-creation"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "jasper",
@@ -371,8 +340,8 @@
       "Professional",
       "Copywriting"
     ],
-    "verified": true,
-    "rating": 4.6,
+    "verified": "true",
+    "rating": "4.6",
     "pros": [
       "High-quality output that sounds less 'robotic'",
       "Specific templates for Video Hooks and Intros",
@@ -387,12 +356,9 @@
       "youtube"
     ],
     "useCases": [
-      "youtube-automation"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+      "youtube-automation",
+      "script-generation"
+    ]
   },
   {
     "id": "descript",
@@ -412,8 +378,8 @@
       "Editing",
       "Workflow"
     ],
-    "verified": true,
-    "rating": 4.7,
+    "verified": "true",
+    "rating": "4.7",
     "pros": [
       "Revolutionary text-based editing workflow",
       "'Studio Sound' removes echo/noise magically",
@@ -432,11 +398,7 @@
     "useCases": [
       "video-editing",
       "content-polishing"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "canva",
@@ -456,8 +418,8 @@
       "Design",
       "Thumbnails"
     ],
-    "verified": true,
-    "rating": 4.9,
+    "verified": "true",
+    "rating": "4.9",
     "pros": [
       "Thousands of proven thumbnail templates",
       "Background remover is best-in-class",
@@ -475,11 +437,7 @@
     "useCases": [
       "thumbnails",
       "channel-branding"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "heygen",
@@ -499,8 +457,8 @@
       "Avatar",
       "Presentation"
     ],
-    "verified": true,
-    "rating": 4.6,
+    "verified": "true",
+    "rating": "4.6",
     "pros": [
       "Lip-syncing is incredibly accurate",
       "Allows you to clone your own face/voice",
@@ -515,11 +473,10 @@
       "youtube",
       "instagram"
     ],
-    "useCases": [],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    "useCases": [
+      "faceless-avatar-videos",
+      "presentation-videos"
+    ]
   },
   {
     "id": "synthesia",
@@ -539,8 +496,8 @@
       "Professional",
       "Education"
     ],
-    "verified": true,
-    "rating": 4.5,
+    "verified": "true",
+    "rating": "4.5",
     "pros": [
       "Highest quality avatar video resolution",
       "Huge variety of diverse avatars",
@@ -555,11 +512,10 @@
       "youtube",
       "instagram"
     ],
-    "useCases": [],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    "useCases": [
+      "faceless-avatar-videos",
+      "presentation-videos"
+    ]
   },
   {
     "id": "speechify",
@@ -579,8 +535,8 @@
       "Unique Voices",
       "Productivity"
     ],
-    "verified": true,
-    "rating": 4.2,
+    "verified": "true",
+    "rating": "4.2",
     "pros": [
       "Unique celebrity voices stand out",
       "Very fast processing speed",
@@ -600,11 +556,7 @@
       "faceless-youtube",
       "narration",
       "story-videos"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "tubebuddy",
@@ -624,8 +576,8 @@
       "Optimization",
       "Testing"
     ],
-    "verified": true,
-    "rating": 4.4,
+    "verified": "true",
+    "rating": "4.4",
     "pros": [
       "A/B testing tool is a game changer for CTR",
       "Bulk update tools save hours of admin work",
@@ -642,11 +594,7 @@
     "useCases": [
       "youtube-growth",
       "keyword-research"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "lovo",
@@ -666,8 +614,8 @@
       "Emotion",
       "Storytelling"
     ],
-    "verified": true,
-    "rating": 4.5,
+    "verified": "true",
+    "rating": "4.5",
     "pros": [
       "Best granular control over emotions",
       "Includes a basic video editor timeline",
@@ -687,11 +635,7 @@
       "faceless-youtube",
       "narration",
       "story-videos"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "veed-io",
@@ -711,8 +655,8 @@
       "Online Editor",
       "Fast"
     ],
-    "verified": true,
-    "rating": 4.6,
+    "verified": "true",
+    "rating": "4.6",
     "pros": [
       "Runs entirely in the browser (no download)",
       "Auto-subtitles are very accurate",
@@ -731,11 +675,7 @@
     "useCases": [
       "video-editing",
       "content-polishing"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "play-ht",
@@ -755,8 +695,8 @@
       "Long Form",
       "Quality"
     ],
-    "verified": true,
-    "rating": 4.5,
+    "verified": "true",
+    "rating": "4.5",
     "pros": [
       "Voices handle long paragraphs without glitching",
       "High quality pronunciation editor",
@@ -776,11 +716,7 @@
       "faceless-youtube",
       "narration",
       "story-videos"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "wondershare-filmora",
@@ -800,8 +736,8 @@
       "Desktop Software",
       "Editing"
     ],
-    "verified": true,
-    "rating": 4.4,
+    "verified": "true",
+    "rating": "4.4",
     "pros": [
       "One-time payment option (Lifetime license)",
       "Much easier to learn than Adobe Premiere",
@@ -820,11 +756,7 @@
     "useCases": [
       "video-editing",
       "content-polishing"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "copy-ai",
@@ -844,8 +776,8 @@
       "Volume",
       "Repurposing"
     ],
-    "verified": true,
-    "rating": 4.3,
+    "verified": "true",
+    "rating": "4.3",
     "pros": [
       "Unlimited words plan is great for daily uploaders",
       "Workflow templates save setup time",
@@ -860,12 +792,9 @@
       "youtube"
     ],
     "useCases": [
-      "youtube-automation"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+      "youtube-automation",
+      "script-generation"
+    ]
   },
   {
     "id": "runway-ml",
@@ -907,11 +836,7 @@
       "youtube-automation",
       "faceless-reels",
       "shorts-creation"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "midjourney",
@@ -949,11 +874,7 @@
     "useCases": [
       "thumbnails",
       "channel-branding"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "suno-ai",
@@ -992,11 +913,7 @@
     "useCases": [
       "background-music",
       "audio-cleaning"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "adobe-podcast",
@@ -1034,11 +951,7 @@
     "useCases": [
       "background-music",
       "audio-cleaning"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "rask-ai",
@@ -1075,11 +988,7 @@
     "useCases": [
       "video-translation",
       "global-distribution"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "getmunch",
@@ -1118,11 +1027,7 @@
     "useCases": [
       "shorts-repurposing",
       "faceless-reels"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "d-id",
@@ -1157,11 +1062,10 @@
       "youtube",
       "instagram"
     ],
-    "useCases": [],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    "useCases": [
+      "faceless-avatar-videos",
+      "presentation-videos"
+    ]
   },
   {
     "id": "soundraw",
@@ -1200,11 +1104,7 @@
     "useCases": [
       "background-music",
       "audio-cleaning"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "kaiber",
@@ -1246,11 +1146,7 @@
       "youtube-automation",
       "faceless-reels",
       "shorts-creation"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "leonardo-ai",
@@ -1288,11 +1184,7 @@
     "useCases": [
       "thumbnails",
       "channel-branding"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "gling",
@@ -1331,11 +1223,7 @@
     "useCases": [
       "video-editing",
       "content-polishing"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "vizard",
@@ -1374,11 +1262,7 @@
     "useCases": [
       "shorts-repurposing",
       "faceless-reels"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "beatoven-ai",
@@ -1417,11 +1301,7 @@
     "useCases": [
       "background-music",
       "audio-cleaning"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "cleanvoice-ai",
@@ -1460,11 +1340,7 @@
     "useCases": [
       "background-music",
       "audio-cleaning"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "castmagic",
@@ -1499,12 +1375,9 @@
       "youtube"
     ],
     "useCases": [
-      "youtube-automation"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+      "youtube-automation",
+      "script-generation"
+    ]
   },
   {
     "id": "podcastle",
@@ -1543,11 +1416,7 @@
     "useCases": [
       "background-music",
       "audio-cleaning"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "steve-ai",
@@ -1589,11 +1458,7 @@
       "youtube-automation",
       "faceless-reels",
       "shorts-creation"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "fliki",
@@ -1635,11 +1500,7 @@
       "youtube-automation",
       "faceless-reels",
       "shorts-creation"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   },
   {
     "id": "tome",
@@ -1674,12 +1535,9 @@
       "youtube"
     ],
     "useCases": [
-      "youtube-automation"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+      "youtube-automation",
+      "script-generation"
+    ]
   },
   {
     "id": "adobe-firefly",
@@ -1717,10 +1575,6 @@
     "useCases": [
       "thumbnails",
       "channel-branding"
-    ],
-    "bestFor": "",
-    "freePlan": false,
-    "trial": false,
-    "alternatives": []
+    ]
   }
 ]
