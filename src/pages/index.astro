@@ -334,7 +334,7 @@ const categories = [...new Set(tools.map(tool => tool.category))].sort();
                             <div class="card">
                                 <img src={tool.image} alt={`${tool.name} logo`} class="card-logo" loading="lazy" />
                                 <span class="category-tag">{tool.category}</span>
-                                <a href={`/tool/${tool.id}`} class="tool-name">
+                                <a href={`/tools/${tool.id}`} class="tool-name">
                                     {tool.name} &rarr;
                                 </a>
                                 <p class="desc">{tool.description.substring(0, 100)}...</p>
