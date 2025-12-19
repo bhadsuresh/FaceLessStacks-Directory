@@ -1,87 +1,135 @@
 ---
-import tools from "@data/tools.json";
+// 1. IMPORT LAYOUT & DATA
+import Layout from '../../layouts/MainLayout.astro';
+import tools from '../../data/tools.json';
 
-/**
- * Build all use-case pages
- */
+// 2. GENERATE PATHS (Exact same logic as your current file)
 export async function getStaticPaths() {
-  const useCases = new Set();
-
+  const allUseCases = new Set();
   tools.forEach(tool => {
     if (Array.isArray(tool.useCases)) {
-      tool.useCases.forEach(u => useCases.add(u));
+      tool.useCases.forEach(uc => allUseCases.add(uc));
     }
   });
-
-  return [...useCases].map(slug => ({
+  
+  return [...allUseCases].map(slug => ({
     params: { slug }
   }));
 }
 
+// 3. GET DATA
 const { slug } = Astro.params;
+const matchedTools = tools.filter(tool => tool.useCases?.includes(slug));
 
-/**
- * Filter tools for this use case
- */
-const matchedTools = tools.filter(
-  tool => tool.useCases?.includes(slug)
-);
-
-/**
- * Prevent thin pages
- */
 if (!matchedTools.length) {
   throw new Error(`No tools found for use case: ${slug}`);
 }
 
-/**
- * SEO
- */
-const readable = slug.replace(/-/g, " ");
-const title = `Best AI Tools for ${readable} (2025)`;
-const description = `Discover the best AI tools for ${readable}. Compare features, pricing, and find the right solution for your workflow.`;
+// SEO & Titles
+// This turns "faceless-youtube" into "Faceless Youtube" for the header
+const readableName = slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 
-/**
- * Sort by rating
- */
+const title = `Best AI Tools for ${readableName} (2025)`;
+const description = `Discover the best AI tools optimized for ${readableName}.`;
+
+// Sort by Rating (Preserving your sort logic)
 matchedTools.sort((a, b) => (b.rating || 0) - (a.rating || 0));
 ---
 
-<html lang="en">
-  <head>
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <link
-      rel="canonical"
-      href={`https://face-less-stacks-directory.vercel.app/use-case/${slug}`}
-    />
-  </head>
+<Layout title={title}>
+  
+  <main class="container">
+    <a href="/" class="back-link">&larr; Back to Directory</a>
 
-  <body>
-    <main class="container">
-      <header>
-        <h1>{title}</h1>
-        <p>
-          Below is a curated list of AI tools best suited for
-          <strong>{readable}</strong>.
-        </p>
-      </header>
+    <header class="page-header">
+      <h1>Best AI Tools for <span class="highlight">{readableName}</span></h1>
+      <p>Below is a curated list of AI tools best suited for <strong>{readableName}</strong>.</p>
+    </header>
 
-      <section>
-        {matchedTools.map(tool => (
-          <article class="tool-card">
-            <h2>
-              <a href={`/tools/${tool.slug}`}>{tool.name}</a>
-            </h2>
+    <div class="tools-grid">
+      {matchedTools.map((tool) => (
+        <a href={`/tools/${tool.slug}`} class="tool-card">
+          <div class="card-header">
+            {tool.image ? (
+               <img src={tool.image} alt={tool.name} class="tool-logo" />
+            ) : (
+               <div class="no-logo">{tool.name[0]}</div>
+            )}
+            <h3>{tool.name}</h3>
+          </div>
+          
+          <p class="tool-desc">{tool.description}</p>
+          
+          <div class="tool-meta">
+            <span class="rating">★ {tool.rating}</span>
+            <span class="price">{tool.pricing}</span>
+          </div>
+        </a>
+      ))}
+    </div>
 
-            {tool.rating && <p>⭐ {tool.rating}</p>}
+  </main>
 
-            <p>{tool.description}</p>
+</Layout>
 
-            <a href={`/tools/${tool.slug}`}>View Details →</a>
-          </article>
-        ))}
-      </section>
-    </main>
-  </body>
-</html>
+<style>
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    color: #64748b;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .back-link:hover { color: #2563eb; }
+
+  .page-header { margin-bottom: 3rem; text-align: center; }
+  h1 { font-size: 2.5rem; color: #0f172a; margin-bottom: 1rem; }
+  .highlight { color: #2563eb; text-transform: capitalize; }
+  
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .tool-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+  .tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    border-color: #2563eb;
+  }
+
+  .card-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+  .tool-logo { width: 48px; height: 48px; object-fit: contain; border-radius: 8px; background: #fff; border: 1px solid #f1f5f9; }
+  .no-logo { width: 48px; height: 48px; display:flex; align-items:center; justify-content:center; background:#f1f5f9; border-radius:8px; font-weight:bold; }
+  
+  h3 { margin: 0; font-size: 1.25rem; color: #1e293b; }
+  .tool-desc { color: #64748b; font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; flex-grow: 1; }
+  
+  .tool-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #475569;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 1rem;
+  }
+  .rating { color: #f59e0b; }
+</style>

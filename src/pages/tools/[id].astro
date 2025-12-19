@@ -1,0 +1,265 @@
+---
+import Layout from '../../layouts/MainLayout.astro';
+import tools from '../../data/tools.json';
+
+// 1. GENERATE PATHS
+export async function getStaticPaths() {
+  return tools.map((tool) => {
+    return {
+      params: { id: tool.slug }, 
+      props: { tool },
+    };
+  });
+}
+
+const { tool } = Astro.props;
+---
+
+<Layout title={`${tool.name} Review & Pricing (2025) | Faceless Stacks`}>
+  
+  <main class="page-container">
+    
+    <nav class="breadcrumb">
+      <a href="/">&larr; Directory</a>
+      <span class="separator">/</span>
+      <a href={`/platform/${tool.platforms?.[0] || 'youtube'}`}>
+        {tool.platforms?.[0] || 'Tools'}
+      </a>
+      <span class="separator">/</span>
+      <span class="current">{tool.name}</span>
+    </nav>
+
+    <div class="layout-grid">
+      
+      <div class="content-column">
+        
+        <div class="mobile-header">
+           <div class="mobile-logo-row">
+             <img src={tool.image} alt={tool.name} class="mobile-logo" />
+             <div>
+               <h1>{tool.name}</h1>
+               <div class="badge-row">
+                 <span class="rating-pill">★ {tool.rating}</span>
+                 <span class="pricing-pill">{tool.pricing}</span>
+               </div>
+             </div>
+           </div>
+           <a href={tool.link} target="_blank" class="cta-button mobile-cta">
+             Visit Website &rarr;
+           </a>
+        </div>
+
+        <section class="info-card">
+          <h2>Overview</h2>
+          <p class="description">{tool.description}</p>
+          
+          <div class="tags-row">
+             {tool.useCases?.map(tag => (
+               <span class="tag-chip">{tag.replace(/-/g, ' ')}</span>
+             ))}
+          </div>
+        </section>
+
+        {tool.features && (
+          <section class="info-card">
+            <h2>Key Features</h2>
+            <div class="features-grid">
+              {tool.features.map(feature => (
+                <div class="feature-item">
+                  <span class="check-icon">✓</span>
+                  <span>{feature}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {(tool.pros || tool.cons) && (
+           <section class="info-card pros-cons-grid">
+             {tool.pros && (
+               <div class="pros-box">
+                 <h3>👍 Pros</h3>
+                 <ul>{tool.pros.map(p => <li>{p}</li>)}</ul>
+               </div>
+             )}
+             {tool.cons && (
+               <div class="cons-box">
+                 <h3>👎 Cons</h3>
+                 <ul>{tool.cons.map(c => <li>{c}</li>)}</ul>
+               </div>
+             )}
+           </section>
+        )}
+
+      </div>
+
+      <aside class="sidebar-column">
+        <div class="sticky-card">
+          <img src={tool.image} alt={tool.name} class="sidebar-logo" />
+          
+          <h1 class="sidebar-title">{tool.name}</h1>
+          <p class="sidebar-price">{tool.pricing}</p>
+          
+          <div class="sidebar-rating">
+            <span class="stars">★★★★★</span>
+            <span class="score">{tool.rating}/5</span>
+          </div>
+
+          <a href={tool.link || "#"} target="_blank" class="cta-button">
+            Visit Official Site
+          </a>
+
+          <p class="affiliate-note">
+            Free trial available • Secure link
+          </p>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+</Layout>
+
+<style>
+  /* --- GLOBAL FONTS & RESET --- */
+  .page-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 5rem 1.5rem; /* Desktop Padding */
+    font-family: 'Inter', sans-serif;
+    color: #334155;
+  }
+
+  /* --- LAYOUT GRID --- */
+  .layout-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px; 
+    gap: 3rem;
+    align-items: start;
+  }
+
+  /* --- BREADCRUMB --- */
+  .breadcrumb {
+    margin-bottom: 1.5rem;
+    color: #64748b;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  .breadcrumb a { text-decoration: none; color: #64748b; }
+  .separator { margin: 0 0.5rem; color: #cbd5e1; }
+  .current { color: #0f172a; font-weight: 600; }
+
+  /* --- CARDS (Global) --- */
+  .info-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 2rem; /* Desktop Card Padding */
+    margin-bottom: 2rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+
+  h2 { margin-top: 0; font-size: 1.4rem; color: #0f172a; margin-bottom: 0.75rem; }
+  .description { font-size: 1.05rem; line-height: 1.6; color: #334155; margin-bottom: 1rem; }
+
+  /* --- TAGS (Pills) --- */
+  .tags-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem; 
+    margin-top: 1rem;
+  }
+  .tag-chip {
+    background: #eff6ff; color: #2563eb; 
+    padding: 4px 12px; border-radius: 20px; 
+    font-size: 0.8rem; font-weight: 600; 
+    border: 1px solid #dbeafe;
+    text-transform: capitalize;
+  }
+
+  /* --- FEATURES GRID --- */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.75rem;
+  }
+  .feature-item {
+    display: flex; align-items: center; gap: 0.75rem;
+    font-size: 0.9rem; color: #475569;
+    background: #f8fafc; padding: 0.6rem 1rem;
+    border-radius: 8px; border: 1px solid #f1f5f9;
+  }
+  .check-icon { color: #16a34a; font-weight: bold; }
+
+  /* --- PROS & CONS --- */
+  .pros-cons-grid { display: grid; gap: 1.5rem; }
+  .pros-box h3 { color: #166534; font-size: 1rem; margin: 0 0 0.5rem 0; }
+  .cons-box h3 { color: #991b1b; font-size: 1rem; margin: 0 0 0.5rem 0; }
+  ul { padding-left: 1.25rem; margin: 0; font-size: 0.95rem; }
+  li { margin-bottom: 0.25rem; }
+
+  /* --- DESKTOP SIDEBAR --- */
+  .sidebar-column { position: relative; }
+  .sticky-card {
+    position: sticky; top: 2rem;
+    background: white; border: 1px solid #e2e8f0;
+    border-radius: 16px; padding: 2rem; text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+  }
+  .sidebar-logo { width: 80px; height: 80px; object-fit: contain; margin-bottom: 1rem; border-radius: 12px; }
+  .cta-button {
+    display: block; background: #2563eb; color: white;
+    text-decoration: none; font-weight: 700; padding: 12px;
+    border-radius: 8px; margin-top: 1rem; text-align: center;
+    transition: 0.2s;
+  }
+  .cta-button:hover { background: #1d4ed8; }
+
+  /* --- MOBILE STYLES (The Fix) --- */
+  .mobile-header { display: none; }
+
+  @media (max-width: 900px) {
+    /* 1. Tighter Page Container */
+    .page-container {
+        padding: 1rem; /* Reduced from 2rem */
+    }
+
+    /* 2. Remove Sidebar */
+    .sidebar-column { display: none !important; }
+    
+    .layout-grid { 
+        display: block; /* Removes grid gap issues */
+    }
+
+    /* 3. Compact Mobile Header */
+    .mobile-header {
+      display: block;
+      background: white;
+      padding: 1rem; /* Tighter padding */
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      margin-bottom: 1rem; /* Reduced gap below header */
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .mobile-logo-row { 
+        display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem; 
+    }
+    .mobile-logo { 
+        width: 56px; height: 56px; /* Smaller logo */
+        border-radius: 8px; object-fit: contain; border: 1px solid #f1f5f9; 
+    }
+    .mobile-header h1 { 
+        font-size: 1.25rem; margin: 0 0 0.25rem 0; color: #0f172a; 
+    }
+    
+    /* 4. Compact Info Cards */
+    .info-card {
+        padding: 1.25rem; /* Reduced from 2rem */
+        margin-bottom: 1rem; /* Reduced gap between cards */
+    }
+    
+    /* 5. Tighter Text */
+    h2 { font-size: 1.15rem; }
+    .description { font-size: 0.95rem; }
+  }
+</style>

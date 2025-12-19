@@ -1,0 +1,102 @@
+---
+const { title = "Faceless VDO Stacks", description = "The best AI tools for faceless creators." } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+    
+    <style is:global>
+      /* --- GLOBAL RESET --- */
+      *, *::before, *::after { box-sizing: border-box; }
+      
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #f8fafc; /* Light Gray Background */
+        color: #1e293b;            /* Dark Slate Text */
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* --- HEADER STYLES --- */
+      header {
+        background: #0f172a;       /* Dark Navy */
+        padding: 1.25rem 0;
+        text-align: center;
+        margin-bottom: 3rem;
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+      }
+      
+      .header-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .brand-link {
+        color: #fff;
+        text-decoration: none;
+        font-family: 'Outfit', sans-serif;
+        font-weight: 700;
+        font-size: 1.25rem;
+        letter-spacing: -0.01em;
+      }
+
+      .nav-links a {
+        color: #94a3b8;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-left: 1.5rem;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover { color: white; }
+
+      /* --- FOOTER --- */
+      footer {
+        text-align: center;
+        padding: 4rem 1rem;
+        color: #94a3b8;
+        font-size: 0.9rem;
+        margin-top: auto;
+        border-top: 1px solid #e2e8f0;
+      }
+      
+      /* --- UTILITIES --- */
+      .container { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; }
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <div class="header-content">
+        <a href="/" class="brand-link">Faceless VDO Stacks</a>
+        
+        <nav class="nav-links">
+            <a href="/stacks">Workflows</a>
+            <a href="/blog">Blog</a>
+        </nav>
+      </div>
+    </header>
+
+    <slot />
+
+    <footer>
+      &copy; 2025 Faceless VDO Stacks. All rights reserved.
+    </footer>
+
+  </body>
+</html>

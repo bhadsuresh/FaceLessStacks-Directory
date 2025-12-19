@@ -1,111 +1,161 @@
 ---
-import tools from "@data/tools.json";
+// 1. IMPORT LAYOUT & DATA
+import Layout from '../../layouts/MainLayout.astro';
+import tools from '../../data/tools.json';
 
-/**
- * Build all platform pages
- */
+// 2. GENERATE PATHS (Using YOUR logic for "platforms")
 export async function getStaticPaths() {
   const platforms = new Set();
-
   tools.forEach(tool => {
     if (Array.isArray(tool.platforms)) {
       tool.platforms.forEach(p => platforms.add(p));
     }
   });
-
   return [...platforms].map(slug => ({
     params: { slug }
   }));
 }
 
+// 3. GET DATA FOR THE PAGE
 const { slug } = Astro.params;
+const matchedTools = tools.filter(tool => tool.platforms?.includes(slug));
 
-/**
- * Filter tools for this platform
- */
-const matchedTools = tools.filter(
-  tool => tool.platforms?.includes(slug)
-);
-
-/**
- * Prevent thin pages
- */
+// Prevent errors if empty
 if (!matchedTools.length) {
   throw new Error(`No tools found for platform: ${slug}`);
 }
 
-/**
- * SEO
- */
-const platformName =
-  slug.charAt(0).toUpperCase() + slug.slice(1);
-
+// SEO & Titles
+const platformName = slug.charAt(0).toUpperCase() + slug.slice(1);
 const title = `Best AI Tools for ${platformName} Creators (2025)`;
 const description = `Discover the best AI tools for ${platformName} creators to build faceless videos, automate workflows, and grow faster.`;
 
-/**
- * Sort by rating
- */
+// Sort by Rating (Your logic)
 matchedTools.sort((a, b) => (b.rating || 0) - (a.rating || 0));
 
-/**
- * Collect related use cases
- */
+// Related Use Cases (Your logic - kept safe)
 const relatedUseCases = [
   ...new Set(matchedTools.flatMap(t => t.useCases || []))
 ].slice(0, 6);
 ---
 
-<html lang="en">
-  <head>
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <link
-      rel="canonical"
-      href={`https://face-less-stacks-directory.vercel.app/platform/${slug}`}
-    />
-  </head>
+<Layout title={title}>
+  
+  <main class="container">
+    <a href="/" class="back-link">&larr; Back to Directory</a>
 
-  <body>
-    <main class="container">
-      <header>
-        <h1>{title}</h1>
-        <p>
-          These AI tools are optimized for creators publishing content on
-          <strong>{platformName}</strong>.
-        </p>
-      </header>
+    <header class="page-header">
+      <h1>Best AI Tools for <span class="highlight">{platformName}</span> Creators</h1>
+      <p>These AI tools are optimized for creators publishing content on <strong>{platformName}</strong>.</p>
+    </header>
 
-      <section>
-        {matchedTools.map(tool => (
-          <article class="tool-card">
-            <h2>
-              <a href={`/tools/${tool.slug}`}>{tool.name}</a>
-            </h2>
+    <div class="tools-grid">
+      {matchedTools.map((tool) => (
+        <a href={`/tools/${tool.slug}`} class="tool-card">
+          <div class="card-header">
+            {tool.image ? (
+               <img src={tool.image} alt={tool.name} class="tool-logo" />
+            ) : (
+               <div class="no-logo">{tool.name[0]}</div>
+            )}
+            <h3>{tool.name}</h3>
+          </div>
+          
+          <p class="tool-desc">{tool.description}</p>
+          
+          <div class="tool-meta">
+            <span class="rating">★ {tool.rating}</span>
+            <span class="price">{tool.pricing}</span>
+          </div>
+        </a>
+      ))}
+    </div>
 
-            {tool.rating && <p>⭐ {tool.rating}</p>}
-
-            <p>{tool.description}</p>
-
-            <a href={`/tools/${tool.slug}`}>View Details →</a>
-          </article>
-        ))}
+    {relatedUseCases.length > 0 && (
+      <section class="related-section">
+        <h3>Related Use Cases</h3>
+        <div class="tags-container">
+          {relatedUseCases.map(u => (
+            <a href={`/use-case/${u}`} class="tag-pill">
+              {u.replace(/-/g, " ")}
+            </a>
+          ))}
+        </div>
       </section>
+    )}
 
-      {relatedUseCases.length > 0 && (
-        <section>
-          <h3>{platformName} Use Cases</h3>
-          <ul>
-            {relatedUseCases.map(u => (
-              <li>
-                <a href={`/use-case/${u}`}>
-                  {u.replace(/-/g, " ")}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-    </main>
-  </body>
-</html>
+  </main>
+
+</Layout>
+
+<style>
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    color: #64748b;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .back-link:hover { color: #2563eb; }
+
+  .page-header { margin-bottom: 3rem; text-align: center; }
+  h1 { font-size: 2.5rem; color: #0f172a; margin-bottom: 1rem; }
+  .highlight { color: #2563eb; text-transform: capitalize; }
+  
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .tool-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+  .tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    border-color: #2563eb;
+  }
+
+  .card-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+  .tool-logo { width: 48px; height: 48px; object-fit: contain; border-radius: 8px; background: #fff; border: 1px solid #f1f5f9; }
+  .no-logo { width: 48px; height: 48px; display:flex; align-items:center; justify-content:center; background:#f1f5f9; border-radius:8px; font-weight:bold; }
+  
+  h3 { margin: 0; font-size: 1.25rem; color: #1e293b; }
+  .tool-desc { color: #64748b; font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; flex-grow: 1; }
+  
+  .tool-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #475569;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 1rem;
+  }
+  .rating { color: #f59e0b; }
+
+  /* Related Section Styles */
+  .related-section { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #e2e8f0; }
+  .related-section h3 { margin-bottom: 1.5rem; font-size: 1.5rem; }
+  .tags-container { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .tag-pill {
+    background: #eff6ff; color: #2563eb; padding: 6px 16px; border-radius: 20px;
+    text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: background 0.2s;
+  }
+  .tag-pill:hover { background: #dbeafe; }
+</style>

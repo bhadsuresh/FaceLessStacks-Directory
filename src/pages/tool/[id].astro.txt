@@ -1,0 +1,114 @@
+---
+// 1. IMPORT YOUR LAYOUT (This is what you are likely missing)
+import MainLayout from '../../layouts/MainLayout.astro';
+import tools from '../../data/tools.json';
+
+// 2. GENERATE PATHS (This part is likely fine, keep your version if different)
+export async function getStaticPaths() {
+  const uniquePlatforms = [...new Set(tools.flatMap(t => t.tags || []))];
+  
+  return uniquePlatforms.map(platform => {
+    // Filter tools for this specific platform
+    const platformTools = tools.filter(t => t.tags && t.tags.includes(platform));
+    return {
+      params: { platform: platform.toLowerCase() },
+      props: { platformName: platform, tools: platformTools },
+    };
+  });
+}
+
+const { platformName, tools: platformTools } = Astro.props;
+---
+
+<Layout title={`Best AI Tools for ${platformName} | Faceless Stacks`}>
+  
+  <main class="container">
+    <a href="/" class="back-link">&larr; Back to Directory</a>
+
+    <header class="page-header">
+      <h1>Best AI Tools for <span class="highlight">{platformName}</span> Creators</h1>
+      <p>These AI tools are optimized for creators publishing content on <strong>{platformName}</strong>.</p>
+    </header>
+
+    <div class="tools-grid">
+      {platformTools.map((tool) => (
+        <a href={`/tools/${tool.id}`} class="tool-card">
+          <div class="card-header">
+            <img src={tool.image} alt={tool.name} class="tool-logo" />
+            <h3>{tool.name}</h3>
+          </div>
+          <p class="tool-desc">{tool.description}</p>
+          <div class="tool-meta">
+            <span class="rating">★ {tool.rating}</span>
+            <span class="price">{tool.pricing}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+  </main>
+
+</Layout>
+
+<style>
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    color: #64748b;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .back-link:hover { color: #2563eb; }
+
+  .page-header {
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  h1 { font-size: 2.5rem; color: #0f172a; margin-bottom: 1rem; }
+  .highlight { color: #2563eb; text-transform: capitalize; }
+  
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .tool-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    border-color: #2563eb;
+  }
+
+  .card-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+  .tool-logo { width: 48px; height: 48px; object-fit: contain; border-radius: 8px; }
+  h3 { margin: 0; font-size: 1.25rem; color: #1e293b; }
+  
+  .tool-desc { color: #64748b; font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; }
+  
+  .tool-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #475569;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 1rem;
+  }
+  .rating { color: #f59e0b; }
+</style>

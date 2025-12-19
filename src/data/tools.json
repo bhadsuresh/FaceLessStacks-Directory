@@ -46,7 +46,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://invideo.io"
   },
   {
     "id": "murf-ai",
@@ -91,7 +92,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://murf.ai"
   },
   {
     "id": "elevenlabs",
@@ -136,7 +138,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://elevenlabs.io"
   },
   {
     "id": "opus-clip",
@@ -180,7 +183,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://www.opus.pro"
   },
   {
     "id": "subscribr",
@@ -221,7 +225,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://subscribr.ai"
   },
   {
     "id": "1of10",
@@ -262,7 +267,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://1of10.com"
   },
   {
     "id": "vidiq",
@@ -304,7 +310,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://vidiq.com"
   },
   {
     "id": "pictory",
@@ -351,7 +358,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://pictory.ai"
   },
   {
     "id": "jasper",
@@ -392,7 +400,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://www.jasper.ai"
   },
   {
     "id": "descript",
@@ -436,7 +445,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://www.descript.com"
   },
   {
     "id": "canva",
@@ -479,7 +489,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://www.canva.com"
   },
   {
     "id": "heygen",
@@ -519,7 +530,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://www.heygen.com"
   },
   {
     "id": "synthesia",
@@ -559,7 +571,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://www.synthesia.io"
   },
   {
     "id": "speechify",
@@ -604,7 +617,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://speechify.com"
   },
   {
     "id": "tubebuddy",
@@ -646,7 +660,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://www.tubebuddy.com"
   },
   {
     "id": "lovo",
@@ -691,7 +706,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://lovo.ai"
   },
   {
     "id": "veed-io",
@@ -735,7 +751,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://www.veed.io"
   },
   {
     "id": "play-ht",
@@ -780,7 +797,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://play.ht"
   },
   {
     "id": "wondershare-filmora",
@@ -824,7 +842,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://filmora.wondershare.com"
   },
   {
     "id": "copy-ai",
@@ -865,7 +884,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://www.copy.ai"
   },
   {
     "id": "runway-ml",
@@ -911,7 +931,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://runwayml.com"
   },
   {
     "id": "midjourney",
@@ -953,7 +974,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://www.midjourney.com"
   },
   {
     "id": "suno-ai",
@@ -996,7 +1018,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://suno.com"
   },
   {
     "id": "adobe-podcast",
@@ -1038,7 +1061,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://podcast.adobe.com"
   },
   {
     "id": "rask-ai",
@@ -1079,7 +1103,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://rask.ai"
   },
   {
     "id": "getmunch",
@@ -1122,7 +1147,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://www.getmunch.com"
   },
   {
     "id": "d-id",
@@ -1161,7 +1187,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://www.d-id.com"
   },
   {
     "id": "soundraw",
@@ -1204,7 +1231,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://soundraw.io"
   },
   {
     "id": "kaiber",
@@ -1250,7 +1278,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://kaiber.ai"
   },
   {
     "id": "leonardo-ai",
@@ -1292,7 +1321,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://leonardo.ai"
   },
   {
     "id": "gling",
@@ -1335,7 +1365,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://gling.ai"
   },
   {
     "id": "vizard",
@@ -1378,7 +1409,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://vizard.ai"
   },
   {
     "id": "beatoven-ai",
@@ -1421,7 +1453,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://www.beatoven.ai"
   },
   {
     "id": "cleanvoice-ai",
@@ -1464,7 +1497,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://cleanvoice.ai"
   },
   {
     "id": "castmagic",
@@ -1504,7 +1538,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://www.castmagic.io"
   },
   {
     "id": "podcastle",
@@ -1547,7 +1582,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://podcastle.ai"
   },
   {
     "id": "steve-ai",
@@ -1593,7 +1629,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://www.steve.ai"
   },
   {
     "id": "fliki",
@@ -1639,7 +1676,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://fliki.ai"
   },
   {
     "id": "tome",
@@ -1679,7 +1717,8 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://tome.app"
   },
   {
     "id": "adobe-firefly",
@@ -1721,6 +1760,7 @@
     "bestFor": "",
     "freePlan": false,
     "trial": false,
-    "alternatives": []
+    "alternatives": [],
+    "link": "https://firefly.adobe.com"
   }
 ]
